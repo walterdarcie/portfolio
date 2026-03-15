@@ -102,7 +102,3 @@ npm run start
 - Metadados básicos configurados em `app/layout.tsx`.
 - Hierarquia semântica de headings.
 - Contraste alto, tipografia legível e layout responsivo.
-## Segurança de dependências
-
-- `next-mdx-remote` está definido em versão `^6.0.0` (ou superior), compatível com o requisito de segurança informado pela Vercel.
-
