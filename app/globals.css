@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  @apply bg-paper text-ink font-sans;
+}
+
+a {
+  @apply decoration-line underline-offset-4 transition-colors;
+}
+
+a:hover {
+  @apply text-ink;
+}
+
+.prose-editorial h2 {
+  @apply mt-16 border-t border-line pt-8 font-serif text-3xl leading-tight text-ink md:text-4xl;
+}
+
+.prose-editorial h3 {
+  @apply mt-10 font-serif text-2xl text-ink;
+}
+
+.prose-editorial p {
+  @apply mt-5 text-lg leading-8 text-muted;
+}
+
+.prose-editorial ul {
+  @apply mt-5 list-disc space-y-2 pl-6 text-lg leading-8 text-muted;
+}
+
+.prose-editorial figure {
+  @apply my-12;
+}
+
+.prose-editorial figcaption {
+  @apply mt-3 text-sm text-muted;
+}

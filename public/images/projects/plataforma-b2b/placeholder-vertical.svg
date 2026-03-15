@@ -1,0 +1,5 @@
+<svg width="800" height="1200" viewBox="0 0 800 1200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="1200" fill="#EFEDE7"/>
+  <rect x="70" y="90" width="660" height="1020" stroke="#BDBAB1" stroke-width="2" stroke-dasharray="12 12"/>
+  <text x="400" y="600" text-anchor="middle" font-family="Inter, sans-serif" font-size="28" fill="#666560">Placeholder Vertical</text>
+</svg>
