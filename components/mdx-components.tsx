@@ -39,7 +39,7 @@ export function ProjectImageBleed({
   height = 1200,
 }: ProjectImageProps) {
   return (
-    <figure className="relative left-1/2 -translate-x-1/2 w-screen my-12">
+    <figure style={{ width: '100vw', marginLeft: 'calc(-50vw + 50%)' }} className="my-12">
       <Image
         src={src}
         alt={alt}
@@ -47,7 +47,7 @@ export function ProjectImageBleed({
         height={height}
         className="h-auto w-full"
       />
-      {caption ? <figcaption className="mx-auto max-w-[800px] px-6">{caption}</figcaption> : null}
+      {caption ? <figcaption className="mx-auto max-w-[860px] px-6">{caption}</figcaption> : null}
     </figure>
   );
 }

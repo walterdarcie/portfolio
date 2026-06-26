@@ -36,7 +36,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="pt-BR" className={`${sourceSerif4.variable} ${sourceSans3.variable}`}>
       <body className="flex min-h-screen flex-col bg-paper font-sans text-ink antialiased">
         {/* Header */}
-        <div className="mx-auto w-full max-w-7xl px-6 md:px-10">
+        <div className="mx-auto w-full max-w-[1440px] px-6 md:px-10">
           <header className="flex items-center justify-between border-b border-line py-4">
             <Link href="/" className="font-serif text-lg font-semibold text-ink no-underline tracking-tight">
               WD
@@ -56,13 +56,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </div>
 
         {/* Main */}
-        <main className="mx-auto w-full max-w-7xl flex-1 px-6 md:px-10">
+        <main className="mx-auto w-full max-w-[1440px] flex-1 px-6 md:px-10">
           {children}
         </main>
 
         {/* Footer */}
         <footer className="mt-auto w-full bg-ink">
-          <div className="mx-auto max-w-7xl px-6 py-16 md:px-10">
+          <div className="mx-auto max-w-[1440px] px-6 py-16 md:px-10">
             <div className="flex flex-col gap-12 md:flex-row md:items-end md:justify-between">
               <div>
                 <p className="font-serif text-3xl font-light text-paper md:text-4xl">
