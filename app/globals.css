@@ -18,20 +18,30 @@ a:hover {
   @apply text-ink;
 }
 
+/* Animation delay utilities */
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }
+.delay-600 { animation-delay: 600ms; }
+.delay-700 { animation-delay: 700ms; }
+
+/* Prose editorial */
 .prose-editorial h2 {
-  @apply mt-16 border-t border-line pt-8 font-serif text-3xl leading-tight text-ink md:text-4xl;
+  @apply mt-16 border-t border-line pt-8 font-serif text-3xl font-semibold leading-tight text-ink md:text-4xl;
 }
 
 .prose-editorial h3 {
-  @apply mt-10 font-serif text-2xl text-ink;
+  @apply mt-10 font-serif text-2xl font-semibold text-ink;
 }
 
 .prose-editorial p {
-  @apply mt-5 text-lg leading-8 text-muted;
+  @apply mt-5 font-sans text-lg leading-8 text-muted;
 }
 
 .prose-editorial ul {
-  @apply mt-5 list-disc space-y-2 pl-6 text-lg leading-8 text-muted;
+  @apply mt-5 list-disc space-y-2 pl-6 font-sans text-lg leading-8 text-muted;
 }
 
 .prose-editorial figure {
@@ -39,5 +49,9 @@ a:hover {
 }
 
 .prose-editorial figcaption {
-  @apply mt-3 text-sm text-muted;
+  @apply mt-3 font-sans text-sm text-muted;
+}
+
+.prose-editorial strong {
+  @apply font-semibold text-ink;
 }
