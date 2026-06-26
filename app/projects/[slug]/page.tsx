@@ -84,8 +84,8 @@ export default async function ProjectPage({ params }: { params: { slug: string }
         </div>
       </header>
 
-      {/* Thumbnail */}
-      <div className="animate-fade-up delay-400 my-12 overflow-hidden">
+      {/* Thumbnail — full viewport bleed */}
+      <div className="animate-fade-up delay-400 relative left-1/2 -translate-x-1/2 w-screen my-12">
         <img
           src={project.thumbnail}
           alt={project.title}
@@ -94,7 +94,7 @@ export default async function ProjectPage({ params }: { params: { slug: string }
       </div>
 
       {/* Content */}
-      <div className="max-w-3xl prose-editorial">{content}</div>
+      <div className="max-w-[800px] prose-editorial">{content}</div>
     </article>
   );
 }

@@ -8,6 +8,7 @@ type ProjectImageProps = {
   height?: number;
 };
 
+// Standard image — no border
 export function ProjectImage({
   src,
   alt,
@@ -22,10 +23,108 @@ export function ProjectImage({
         alt={alt}
         width={width}
         height={height}
-        className="h-auto w-full rounded-sm border border-line bg-white"
+        className="h-auto w-full"
       />
       {caption ? <figcaption>{caption}</figcaption> : null}
     </figure>
+  );
+}
+
+// Full viewport-width bleed image — escapes the prose container and page max-width
+export function ProjectImageBleed({
+  src,
+  alt,
+  caption,
+  width = 2400,
+  height = 1200,
+}: ProjectImageProps) {
+  return (
+    <figure className="relative left-1/2 -translate-x-1/2 w-screen my-12">
+      <Image
+        src={src}
+        alt={alt}
+        width={width}
+        height={height}
+        className="h-auto w-full"
+      />
+      {caption ? <figcaption className="mx-auto max-w-[800px] px-6">{caption}</figcaption> : null}
+    </figure>
+  );
+}
+
+// Floating image — sits beside text on desktop
+export function ProjectImageFloat({
+  src,
+  alt,
+  caption,
+  width = 900,
+  height = 700,
+  side = 'right',
+}: ProjectImageProps & { side?: 'left' | 'right' }) {
+  return (
+    <figure
+      className={[
+        'my-6 w-full md:w-[48%]',
+        side === 'right'
+          ? 'md:float-right md:ml-10 md:clear-right'
+          : 'md:float-left md:mr-10 md:clear-left',
+      ].join(' ')}
+    >
+      <Image
+        src={src}
+        alt={alt}
+        width={width}
+        height={height}
+        className="h-auto w-full"
+      />
+      {caption ? <figcaption>{caption}</figcaption> : null}
+    </figure>
+  );
+}
+
+// Context/Problem/Role cards — 3 columns
+export function ContextCards({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="my-12 grid gap-6 md:grid-cols-3">
+      {children}
+    </div>
+  );
+}
+
+export function ContextCard({
+  title,
+  children,
+}: {
+  title: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <div className="flex flex-col gap-3 rounded-sm border border-line bg-white p-6">
+      <span className="font-sans text-[10px] font-semibold uppercase tracking-[0.2em] text-muted/60">
+        {title}
+      </span>
+      <div className="font-sans text-sm leading-7 text-muted [&_p]:mt-0 [&_p]:text-sm [&_p]:leading-7 [&_strong]:font-semibold [&_strong]:text-ink">
+        {children}
+      </div>
+    </div>
+  );
+}
+
+// Full-width business impact card
+export function BusinessImpact({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <div className="my-12 rounded-sm border border-line bg-accent/5 p-8 md:p-10">
+      <span className="font-sans text-[10px] font-semibold uppercase tracking-[0.2em] text-accent">
+        Business impact
+      </span>
+      <div className="mt-4 font-sans text-base leading-8 text-ink md:text-lg [&_p]:mt-0">
+        {children}
+      </div>
+    </div>
   );
 }
 
@@ -33,8 +132,7 @@ export function ImageGrid({ children }: { children: React.ReactNode }) {
   return <div className="my-10 grid gap-6 md:grid-cols-2">{children}</div>;
 }
 
-// Band of headline metrics. Labels use <span>/<div> (not <p>) so the
-// `.prose-editorial p` rule can't override their styling.
+// Band of headline metrics
 export function StatGrid({ children }: { children: React.ReactNode }) {
   return (
     <div className="my-12 grid gap-px overflow-hidden rounded-sm border border-line bg-line sm:grid-cols-2 md:grid-cols-3">
@@ -54,7 +152,7 @@ export function Stat({ value, label }: { value: string; label: string }) {
   );
 }
 
-// Editorial pull-quote. Inner text is a <div> to dodge the prose <p> rule.
+// Editorial pull-quote
 export function Pullquote({ children }: { children: React.ReactNode }) {
   return (
     <blockquote className="my-12 border-l-2 border-accent pl-6 md:pl-8">
@@ -67,6 +165,11 @@ export function Pullquote({ children }: { children: React.ReactNode }) {
 
 export const mdxComponents = {
   ProjectImage,
+  ProjectImageBleed,
+  ProjectImageFloat,
+  ContextCards,
+  ContextCard,
+  BusinessImpact,
   ImageGrid,
   StatGrid,
   Stat,
