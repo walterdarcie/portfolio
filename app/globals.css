@@ -14,12 +14,10 @@ a {
   @apply decoration-line underline-offset-4 transition-colors;
 }
 
-a:hover {
-  @apply text-ink;
-}
-
-/* Animation delay utilities */
+/* ── Animation delay utilities ─────────────── */
+.delay-75  { animation-delay: 75ms; }
 .delay-100 { animation-delay: 100ms; }
+.delay-150 { animation-delay: 150ms; }
 .delay-200 { animation-delay: 200ms; }
 .delay-300 { animation-delay: 300ms; }
 .delay-400 { animation-delay: 400ms; }
@@ -27,7 +25,29 @@ a:hover {
 .delay-600 { animation-delay: 600ms; }
 .delay-700 { animation-delay: 700ms; }
 
-/* Prose editorial */
+/* ── Scroll-triggered animations ────────────── */
+.aos-base {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.aos-base.aos-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Scrollbar hide ─────────────────────────── */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* ── Prose editorial ────────────────────────── */
 .prose-editorial h2 {
   @apply mt-16 border-t border-line pt-8 font-serif text-3xl font-semibold leading-tight text-ink md:text-4xl;
 }
@@ -37,11 +57,11 @@ a:hover {
 }
 
 .prose-editorial p {
-  @apply mt-5 font-sans text-lg leading-8 text-muted;
+  @apply mt-5 font-sans text-base leading-8 text-muted md:text-lg;
 }
 
 .prose-editorial ul {
-  @apply mt-5 list-disc space-y-2 pl-6 font-sans text-lg leading-8 text-muted;
+  @apply mt-5 list-disc space-y-2 pl-6 font-sans text-base leading-8 text-muted md:text-lg;
 }
 
 .prose-editorial figure {

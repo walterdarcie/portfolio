@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { compileMDX } from 'next-mdx-remote/rsc';
 import remarkGfm from 'remark-gfm';
@@ -25,18 +26,75 @@ export default async function ProjectPage({ params }: { params: { slug: string }
   });
 
   return (
-    <article className="max-w-4xl space-y-10">
-      <header className="space-y-5 border-b border-line pb-10">
-        <p className="text-sm uppercase tracking-wide text-muted">Case de Product Design</p>
-        <h1 className="font-serif text-4xl leading-tight md:text-6xl">{project.title}</h1>
-        <p className="text-xl leading-9 text-muted">{project.summary}</p>
-        <div className="flex flex-wrap gap-4 text-sm text-muted">
-          <span>{project.date}</span>
-          <span>Impacto: {project.impact}</span>
-          <span>{project.tags.join(' · ')}</span>
+    <article className="pb-24 pt-12">
+      {/* Back link */}
+      <Link
+        href="/projects"
+        className="inline-flex items-center gap-2 font-sans text-xs text-muted no-underline transition-colors hover:text-ink"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="12"
+          height="12"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          aria-hidden="true"
+        >
+          <path d="M19 12H5M12 19l-7-7 7-7" />
+        </svg>
+        Todos os projetos
+      </Link>
+
+      {/* Header */}
+      <header className="mt-10 border-b border-line pb-12 animate-fade-up">
+        <div className="flex flex-wrap items-center gap-2 font-sans text-xs font-semibold uppercase tracking-wider text-accent">
+          {project.tags.slice(0, 2).map((tag, i) => (
+            <span key={tag} className="flex items-center gap-2">
+              {i > 0 && <span className="text-line">·</span>}
+              {tag}
+            </span>
+          ))}
+        </div>
+
+        <h1
+          className="animate-fade-up delay-100 mt-4 font-serif font-semibold leading-tight text-ink"
+          style={{ fontSize: 'clamp(2.2rem, 5vw, 4rem)' }}
+        >
+          {project.title}
+        </h1>
+
+        <p className="animate-fade-up delay-200 mt-5 max-w-2xl font-sans text-lg leading-8 text-muted">
+          {project.summary}
+        </p>
+
+        {/* Meta row */}
+        <div className="animate-fade-up delay-300 mt-8 flex flex-wrap gap-6">
+          <div className="flex flex-col gap-1">
+            <span className="font-sans text-[10px] uppercase tracking-[0.2em] text-muted/50">Ano</span>
+            <span className="font-sans text-sm font-medium text-ink">{project.date}</span>
+          </div>
+          <div className="flex flex-col gap-1">
+            <span className="font-sans text-[10px] uppercase tracking-[0.2em] text-muted/50">Impacto</span>
+            <span className="font-sans text-sm font-medium text-accent">{project.impact}</span>
+          </div>
         </div>
       </header>
-      <div className="prose-editorial">{content}</div>
+
+      {/* Thumbnail */}
+      <div className="animate-fade-up delay-400 my-12 overflow-hidden">
+        <img
+          src={project.thumbnail}
+          alt={project.title}
+          className="h-auto w-full"
+        />
+      </div>
+
+      {/* Content */}
+      <div className="max-w-3xl prose-editorial">{content}</div>
     </article>
   );
 }

@@ -68,7 +68,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <p className="font-serif text-3xl font-light text-paper md:text-4xl">
                   Walter Darcie
                 </p>
-                <p className="mt-2 font-sans text-xs font-light uppercase tracking-[0.25em] text-paper/40">
+                <p className="mt-2 font-sans text-xs font-light uppercase tracking-[0.25em] text-paper/50">
                   Staff Product Designer
                 </p>
               </div>
@@ -76,7 +76,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <div className="flex flex-col gap-5">
                 <a
                   href="mailto:walter.darcie@yahoo.com.br"
-                  className="flex items-center gap-3 font-sans text-sm text-paper/60 no-underline transition-colors hover:text-paper"
+                  className="flex items-center gap-3 font-sans text-base font-medium text-paper no-underline transition-opacity hover:opacity-70"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -99,12 +99,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   href="https://wa.me/5511971642798"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 font-sans text-sm text-paper/60 no-underline transition-colors hover:text-paper"
+                  className="flex items-center gap-3 font-sans text-base font-medium text-paper no-underline transition-opacity hover:opacity-70"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    width="15"
-                    height="15"
+                    width="16"
+                    height="16"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
@@ -121,7 +121,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </div>
 
             <div className="mt-16 border-t border-paper/10 pt-8">
-              <p className="font-sans text-xs text-paper/25">
+              <p className="font-sans text-xs text-paper/40">
                 © 2026 Walter Darcie. Todos os direitos reservados.
               </p>
             </div>
