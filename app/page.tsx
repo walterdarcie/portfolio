@@ -88,7 +88,7 @@ export default function HomePage() {
         </div>
 
         {/* Timeline carousel */}
-        <div className="animate-fade-up delay-500 border-t border-line pt-8">
+        <div className="animate-fade-up delay-500 pt-8">
           <p className="mb-6 font-sans text-sm text-muted">
             +15 anos de trajetória em produto
           </p>
@@ -144,7 +144,7 @@ export default function HomePage() {
 
       {/* ── Projects ─────────────────────────────────── */}
       <AnimateOnScroll>
-        <section className="border-t border-line pb-24 pt-16">
+        <section className="pb-24 pt-16">
           <div className="mb-10">
             <h2 className="font-serif text-3xl font-light text-ink md:text-4xl">Projetos</h2>
             <p className="mt-2 font-sans text-sm text-muted">
@@ -184,7 +184,7 @@ export default function HomePage() {
                     </p>
                   </div>
                   {/* Always at the card bottom */}
-                  <div className="mt-auto border-t border-line pt-5 flex items-center justify-between">
+                  <div className="mt-auto pt-5 flex items-center justify-between">
                     <span className="font-sans text-xs text-muted/60">{project.date}</span>
                     <span className="font-sans text-xs font-semibold uppercase tracking-wide text-ink transition-colors group-hover:text-accent">
                       Ver case →
