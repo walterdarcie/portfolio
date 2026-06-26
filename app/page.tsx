@@ -2,67 +2,18 @@ import Link from 'next/link';
 import { getAllProjects } from '@/lib/projects';
 import { AnimateOnScroll } from '@/components/animate-on-scroll';
 
+// Newest → oldest (left to right)
 const timeline = [
-  {
-    company: 'Cásper Líbero',
-    role: 'Estagiário de Conteúdo',
-    period: 'jan 2011 – jul 2012',
-    current: false,
-  },
-  {
-    company: 'Cásper Líbero',
-    role: 'Web Designer Jr',
-    period: 'jul 2012 – dez 2016',
-    current: false,
-  },
-  {
-    company: 'Cásper Líbero',
-    role: 'Web Designer Pleno',
-    period: 'dez 2016 – fev 2019',
-    current: false,
-  },
-  {
-    company: 'Bionexo',
-    role: 'Product Designer',
-    period: 'fev 2019 – nov 2019',
-    current: false,
-  },
-  {
-    company: 'Bionexo',
-    role: 'Senior Product Designer',
-    period: 'nov 2019 – jan 2021',
-    current: false,
-  },
-  {
-    company: 'Bionexo',
-    role: 'Lead Product Designer',
-    period: 'jan 2021 – abr 2022',
-    current: false,
-  },
-  {
-    company: 'Pipo Saúde',
-    role: 'Lead Product Designer',
-    period: 'abr 2022 – dez 2023',
-    current: false,
-  },
-  {
-    company: 'Coderhouse',
-    role: 'Professor e tutor',
-    period: 'jun 2022 – fev 2023',
-    current: false,
-  },
-  {
-    company: 'Hotmart',
-    role: 'Senior Product Designer',
-    period: 'abr 2024 – abr 2026',
-    current: false,
-  },
-  {
-    company: 'Hotmart',
-    role: 'Staff Product Designer',
-    period: 'abr 2026 – atual',
-    current: true,
-  },
+  { company: 'Hotmart',        role: 'Staff Product Designer',      period: 'abr 2026 – atual',      current: true  },
+  { company: 'Hotmart',        role: 'Senior Product Designer',     period: 'abr 2024 – abr 2026',   current: false },
+  { company: 'Pipo Saúde',     role: 'Lead Product Designer',       period: 'abr 2022 – dez 2023',   current: false },
+  { company: 'Coderhouse',     role: 'Professor e tutor',           period: 'jun 2022 – fev 2023',   current: false },
+  { company: 'Bionexo',        role: 'Lead Product Designer',       period: 'jan 2021 – abr 2022',   current: false },
+  { company: 'Bionexo',        role: 'Senior Product Designer',     period: 'nov 2019 – jan 2021',   current: false },
+  { company: 'Bionexo',        role: 'Product Designer',            period: 'fev 2019 – nov 2019',   current: false },
+  { company: 'Cásper Líbero',  role: 'Web Designer Pleno',         period: 'dez 2016 – fev 2019',   current: false },
+  { company: 'Cásper Líbero',  role: 'Web Designer Jr',            period: 'jul 2012 – dez 2016',   current: false },
+  { company: 'Cásper Líbero',  role: 'Estagiário de Conteúdo',     period: 'jan 2011 – jul 2012',   current: false },
 ];
 
 export default function HomePage() {
@@ -138,22 +89,30 @@ export default function HomePage() {
 
         {/* Timeline carousel */}
         <div className="animate-fade-up delay-500 border-t border-line pt-8">
-          <p className="mb-6 font-sans text-xs font-light uppercase tracking-[0.25em] text-muted/60">
+          <p className="mb-6 font-sans text-sm text-muted">
             +15 anos de trajetória em produto
           </p>
 
-          {/* Full-bleed horizontal scroll */}
-          <div className="-mx-6 overflow-x-auto scrollbar-hide md:-mx-10">
-            <div className="flex px-6 pb-10 md:px-10">
+          {/* Full-viewport-width horizontal scroll */}
+          <div
+            className="overflow-x-auto scrollbar-hide"
+            style={{
+              position: 'relative',
+              left: '50%',
+              marginLeft: '-50vw',
+              width: '100vw',
+            }}
+          >
+            <div className="flex pb-12 pl-6 md:pl-10">
               {timeline.map((item, i) => (
-                <div key={`${item.company}-${i}`} className="flex w-[200px] shrink-0 flex-col">
+                <div key={`${item.company}-${i}`} className="flex w-[220px] shrink-0 flex-col">
                   {/* Dot + connector */}
                   <div className="flex items-center">
                     <div
-                      className={`z-10 h-2.5 w-2.5 shrink-0 rounded-full transition-all ${
+                      className={`z-10 h-3 w-3 shrink-0 rounded-full transition-all ${
                         item.current
-                          ? 'bg-accent shadow-[0_0_0_4px_rgba(241,87,35,0.2)]'
-                          : 'border border-muted/30 bg-paper'
+                          ? 'bg-accent shadow-[0_0_0_5px_rgba(241,87,35,0.18)]'
+                          : 'bg-muted/40'
                       }`}
                     />
                     {i < timeline.length - 1 && (
@@ -161,18 +120,18 @@ export default function HomePage() {
                     )}
                   </div>
                   {/* Labels */}
-                  <div className="mt-4 pr-4">
+                  <div className="mt-4 pr-5">
                     <p
-                      className={`font-sans text-[10px] font-semibold uppercase tracking-[0.18em] ${
-                        item.current ? 'text-accent' : 'text-muted/50'
+                      className={`font-sans text-xs font-semibold uppercase tracking-[0.14em] ${
+                        item.current ? 'text-accent' : 'text-muted'
                       }`}
                     >
                       {item.company}
                     </p>
-                    <p className="mt-1 font-serif text-sm font-semibold leading-tight text-ink">
+                    <p className="mt-1.5 font-serif text-base font-semibold leading-tight text-ink">
                       {item.role}
                     </p>
-                    <p className="mt-1 font-sans text-[10px] leading-relaxed text-muted/50">
+                    <p className="mt-1.5 font-sans text-xs leading-relaxed text-muted">
                       {item.period}
                     </p>
                   </div>

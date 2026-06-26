@@ -37,7 +37,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="flex min-h-screen flex-col bg-paper font-sans text-ink antialiased">
         {/* Header */}
         <div className="mx-auto w-full max-w-6xl px-6 md:px-10">
-          <header className="flex items-center justify-between border-b border-line py-6">
+          <header className="flex items-center justify-between border-b border-line py-4">
             <Link href="/" className="font-serif text-lg font-semibold text-ink no-underline tracking-tight">
               WD
             </Link>
@@ -68,7 +68,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <p className="font-serif text-3xl font-light text-paper md:text-4xl">
                   Walter Darcie
                 </p>
-                <p className="mt-2 font-sans text-xs font-light uppercase tracking-[0.25em] text-paper/50">
+                <p className="mt-2 font-sans text-sm font-light uppercase tracking-[0.2em] text-paper/75">
                   Staff Product Designer
                 </p>
               </div>
@@ -121,7 +121,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </div>
 
             <div className="mt-16 border-t border-paper/10 pt-8">
-              <p className="font-sans text-xs text-paper/40">
+              <p className="font-sans text-sm text-paper/60">
                 © 2026 Walter Darcie. Todos os direitos reservados.
               </p>
             </div>
