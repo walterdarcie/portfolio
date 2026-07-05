@@ -99,9 +99,10 @@ npm run start
 
 ## SEO e acessibilidade
 
+- **O site não é indexado por buscadores** (decisão intencional): `robots: noindex, nofollow` global em `app/layout.tsx`, sem sitemap. O `robots.txt` permite o crawl de propósito, é assim que o Google lê a meta noindex e mantém o site fora do índice. O acesso é por link direto, e os previews de link (WhatsApp, LinkedIn) continuam funcionando via Open Graph.
 - Metadados globais (Open Graph, título com template) em `app/layout.tsx`, com constantes em `lib/site.ts`.
 - Metadados por página e por case (`generateMetadata` em `app/projects/[slug]/page.tsx`).
-- `sitemap.xml` e `robots.txt` gerados por `app/sitemap.ts` e `app/robots.ts`. Ao publicar com domínio próprio, defina `NEXT_PUBLIC_SITE_URL` (na Vercel, a URL de produção é detectada automaticamente).
+- Ao publicar com domínio próprio, defina `NEXT_PUBLIC_SITE_URL` (na Vercel, a URL de produção é detectada automaticamente).
 - Hierarquia semântica de headings, contraste alto e layout responsivo.
 - Tipografia: nenhuma fonte abaixo de 12px; textos de conteúdo e interativos em 14px ou mais.
 

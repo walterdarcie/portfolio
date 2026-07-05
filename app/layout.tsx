@@ -27,6 +27,15 @@ export const metadata: Metadata = {
     template: `%s · ${siteName}`,
   },
   description: siteDescription,
+  // Site fora dos buscadores: acessível apenas por link direto
+  robots: {
+    index: false,
+    follow: false,
+    googleBot: {
+      index: false,
+      follow: false,
+    },
+  },
   openGraph: {
     type: 'website',
     locale: 'pt_BR',
