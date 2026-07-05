@@ -3,6 +3,8 @@ import { useEffect, useRef } from 'react';
 
 type ParallaxHeroProps = {
   backgroundSrc: string;
+  logoSrc?: string;
+  logoAlt?: string;
   title: string;
   tags?: string;
   summary?: string;
@@ -10,7 +12,7 @@ type ParallaxHeroProps = {
   impact?: string;
 };
 
-export function ParallaxHero({ backgroundSrc, title, tags, summary, year, impact }: ParallaxHeroProps) {
+export function ParallaxHero({ backgroundSrc, logoSrc, logoAlt, title, tags, summary, year, impact }: ParallaxHeroProps) {
   const bgRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -72,11 +74,9 @@ export function ParallaxHero({ backgroundSrc, title, tags, summary, year, impact
           }}
         >
           {/* Logo */}
-          <img
-            src="/images/projects/collections-hotmart/logo-da-hotmart.svg"
-            alt="Hotmart"
-            className="mb-5 h-7 w-auto"
-          />
+          {logoSrc && (
+            <img src={logoSrc} alt={logoAlt ?? ''} className="mb-5 h-7 w-auto" />
+          )}
 
           {/* Tag chips */}
           {tagList.length > 0 && (
@@ -84,7 +84,7 @@ export function ParallaxHero({ backgroundSrc, title, tags, summary, year, impact
               {tagList.map((tag) => (
                 <span
                   key={tag}
-                  className="inline-flex rounded-full border border-line/50 bg-white/60 px-2.5 py-0.5 font-sans text-[11px] font-medium text-muted"
+                  className="inline-flex rounded-full border border-line/50 bg-white/60 px-2.5 py-0.5 font-sans text-xs font-medium text-muted"
                 >
                   {tag}
                 </span>
@@ -122,7 +122,7 @@ export function ParallaxHero({ backgroundSrc, title, tags, summary, year, impact
             >
               {year && (
                 <div className="flex flex-col items-center gap-0.5">
-                  <span className="font-sans text-[9px] font-bold uppercase tracking-[0.18em] text-muted/50">
+                  <span className="font-sans text-xs font-bold uppercase tracking-[0.18em] text-muted/50">
                     Ano
                   </span>
                   <span className="font-sans text-sm font-medium text-ink">{year}</span>
@@ -130,7 +130,7 @@ export function ParallaxHero({ backgroundSrc, title, tags, summary, year, impact
               )}
               {impact && (
                 <div className="flex flex-col items-center gap-0.5">
-                  <span className="font-sans text-[9px] font-bold uppercase tracking-[0.18em] text-muted/50">
+                  <span className="font-sans text-xs font-bold uppercase tracking-[0.18em] text-muted/50">
                     Impacto
                   </span>
                   <span className="font-sans text-sm font-medium text-accent">{impact}</span>

@@ -1,6 +1,12 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { getAllProjects } from '@/lib/projects';
 import { AnimateOnScroll } from '@/components/animate-on-scroll';
+
+export const metadata: Metadata = {
+  title: 'Projetos',
+  description: 'Cases de Product Design com foco em impacto, processo e tomada de decisão.',
+};
 
 export default function ProjectsPage() {
   const projects = getAllProjects();
@@ -54,8 +60,8 @@ export default function ProjectsPage() {
                   </p>
                 </div>
                 <div className="mt-auto border-t border-line pt-5 flex items-center justify-between">
-                  <span className="font-sans text-xs text-muted/60">{project.date}</span>
-                  <span className="font-sans text-xs font-semibold uppercase tracking-wide text-ink transition-colors group-hover:text-accent">
+                  <span className="font-sans text-sm text-muted/60">{project.date}</span>
+                  <span className="font-sans text-sm font-semibold uppercase tracking-wide text-ink transition-colors group-hover:text-accent">
                     Ver case →
                   </span>
                 </div>

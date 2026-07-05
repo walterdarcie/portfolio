@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { compileMDX } from 'next-mdx-remote/rsc';
@@ -7,6 +8,27 @@ import { getAllProjects, getProjectBySlug, type ProjectFrontmatter } from '@/lib
 
 export function generateStaticParams() {
   return getAllProjects().map((project) => ({ slug: project.slug }));
+}
+
+export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
+  const project = getProjectBySlug(params.slug);
+  if (!project) return {};
+
+  return {
+    title: project.title,
+    description: project.summary,
+    openGraph: {
+      title: project.title,
+      description: project.summary,
+      images: [{ url: project.thumbnail }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: project.title,
+      description: project.summary,
+      images: [project.thumbnail],
+    },
+  };
 }
 
 export default async function ProjectPage({ params }: { params: { slug: string } }) {
@@ -30,7 +52,7 @@ export default async function ProjectPage({ params }: { params: { slug: string }
       {/* Back link */}
       <Link
         href="/projects"
-        className="inline-flex items-center gap-2 font-sans text-xs text-muted no-underline transition-colors hover:text-ink"
+        className="inline-flex items-center gap-2 font-sans text-sm text-muted no-underline transition-colors hover:text-ink"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -76,11 +98,11 @@ export default async function ProjectPage({ params }: { params: { slug: string }
             {/* Meta row */}
             <div className="animate-fade-up delay-300 mt-8 flex flex-wrap gap-6">
               <div className="flex flex-col gap-1">
-                <span className="font-sans text-[10px] uppercase tracking-[0.2em] text-muted/50">Ano</span>
+                <span className="font-sans text-xs uppercase tracking-[0.2em] text-muted/50">Ano</span>
                 <span className="font-sans text-sm font-medium text-ink">{project.date}</span>
               </div>
               <div className="flex flex-col gap-1">
-                <span className="font-sans text-[10px] uppercase tracking-[0.2em] text-muted/50">Impacto</span>
+                <span className="font-sans text-xs uppercase tracking-[0.2em] text-muted/50">Impacto</span>
                 <span className="font-sans text-sm font-medium text-accent">{project.impact}</span>
               </div>
             </div>

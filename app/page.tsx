@@ -32,7 +32,7 @@ export default function HomePage() {
           <div className="animate-fade-up">
             <span className="inline-flex items-center gap-2.5 font-sans text-sm font-semibold text-ink">
               <span className="inline-block h-1.5 w-1.5 rounded-full bg-accent" />
-              Staff Product Designer — Hotmart
+              Staff Product Designer · Hotmart
             </span>
           </div>
 
@@ -131,7 +131,7 @@ export default function HomePage() {
                     <p className="mt-1.5 font-serif text-base font-semibold leading-tight text-ink">
                       {item.role}
                     </p>
-                    <p className="mt-1.5 font-sans text-xs leading-relaxed text-muted">
+                    <p className="mt-1.5 font-sans text-sm leading-relaxed text-muted">
                       {item.period}
                     </p>
                   </div>
@@ -185,8 +185,8 @@ export default function HomePage() {
                   </div>
                   {/* Always at the card bottom */}
                   <div className="mt-auto pt-5 flex items-center justify-between">
-                    <span className="font-sans text-xs text-muted/60">{project.date}</span>
-                    <span className="font-sans text-xs font-semibold uppercase tracking-wide text-ink transition-colors group-hover:text-accent">
+                    <span className="font-sans text-sm text-muted/60">{project.date}</span>
+                    <span className="font-sans text-sm font-semibold uppercase tracking-wide text-ink transition-colors group-hover:text-accent">
                       Ver case →
                     </span>
                   </div>

@@ -1,4 +1,11 @@
+import type { Metadata } from 'next';
 import { AnimateOnScroll } from '@/components/animate-on-scroll';
+
+export const metadata: Metadata = {
+  title: 'Sobre',
+  description:
+    'Staff Product Designer com mais de 15 anos de trajetória em produtos digitais, hoje focado em produtos financeiros na América Latina.',
+};
 
 export default function AboutPage() {
   return (
@@ -27,7 +34,7 @@ export default function AboutPage() {
 
       <AnimateOnScroll className="mt-6 max-w-2xl" delay={100}>
         <p className="font-sans text-lg leading-8 text-muted">
-          Hoje na Hotmart, lidero tecnicamente a vertical de Credit — internacionalização
+          Hoje na Hotmart, lidero tecnicamente a vertical de Credit: internacionalização
           de BNPL, experiências de collections e antecipação de recebíveis para a América
           Latina. Conecto estratégia, dados e execução para criar produtos financeiros que
           reduzem inadimplência e aumentam confiança na jornada de pagamento.
@@ -36,7 +43,7 @@ export default function AboutPage() {
 
       <AnimateOnScroll className="mt-6 max-w-2xl" delay={200}>
         <p className="font-sans text-lg leading-8 text-muted">
-          Antes de fintech, passei pela healthtech na Bionexo e Pipo Saúde — onde liderei
+          Antes de fintech, passei pela healthtech na Bionexo e Pipo Saúde, onde liderei
           times de design em produtos SaaS B2B e plataformas de benefícios corporativos.
           Comecei a carreira em entretenimento digital na Fundação Cásper Líbero, onde
           construí a base em UX, sistemas de design e desenvolvimento front-end.

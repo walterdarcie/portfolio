@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Source_Serif_4, Source_Sans_3 } from 'next/font/google';
 import './globals.css';
 import Link from 'next/link';
+import { siteDescription, siteName, siteTitle, siteUrl } from '@/lib/site';
 
 const sourceSerif4 = Source_Serif_4({
   subsets: ['latin'],
@@ -20,15 +21,31 @@ const sourceSans3 = Source_Sans_3({
 });
 
 export const metadata: Metadata = {
-  title: 'Walter Darcie — Staff Product Designer',
-  description:
-    'Portfólio de Product Design com foco em produtos financeiros, crédito e collections na América Latina.',
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: siteTitle,
+    template: `%s · ${siteName}`,
+  },
+  description: siteDescription,
+  openGraph: {
+    type: 'website',
+    locale: 'pt_BR',
+    siteName,
+    title: siteTitle,
+    description: siteDescription,
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: siteTitle,
+    description: siteDescription,
+  },
 };
 
 const navItems = [
   { href: '/', label: 'Home' },
   { href: '/projects', label: 'Projetos' },
   { href: '/sobre', label: 'Sobre' },
+  { href: '/contato', label: 'Contato' },
 ];
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

@@ -1,4 +1,4 @@
-# Portfólio — Walter Darcie (Product Designer)
+# Portfólio · Walter Darcie (Product Designer)
 
 Portfólio editorial e minimalista construído com **Next.js + TypeScript + Tailwind + MDX**.
 
@@ -99,6 +99,12 @@ npm run start
 
 ## SEO e acessibilidade
 
-- Metadados básicos configurados em `app/layout.tsx`.
-- Hierarquia semântica de headings.
-- Contraste alto, tipografia legível e layout responsivo.
+- Metadados globais (Open Graph, título com template) em `app/layout.tsx`, com constantes em `lib/site.ts`.
+- Metadados por página e por case (`generateMetadata` em `app/projects/[slug]/page.tsx`).
+- `sitemap.xml` e `robots.txt` gerados por `app/sitemap.ts` e `app/robots.ts`. Ao publicar com domínio próprio, defina `NEXT_PUBLIC_SITE_URL` (na Vercel, a URL de produção é detectada automaticamente).
+- Hierarquia semântica de headings, contraste alto e layout responsivo.
+- Tipografia: nenhuma fonte abaixo de 12px; textos de conteúdo e interativos em 14px ou mais.
+
+## Imagens pendentes
+
+Os dois cases mais novos usam placeholders rotulados. O mapa de substituição está em `content/projects/IMAGENS-PENDENTES.md`.

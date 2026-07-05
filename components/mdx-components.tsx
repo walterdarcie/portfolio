@@ -25,6 +25,8 @@ type ProjectVideoProps = {
 
 export function ProjectHero({
   backgroundSrc,
+  logoSrc,
+  logoAlt,
   title,
   tags,
   summary,
@@ -32,6 +34,8 @@ export function ProjectHero({
   impact,
 }: {
   backgroundSrc: string;
+  logoSrc?: string;
+  logoAlt?: string;
   title: string;
   tags?: string;
   summary?: string;
@@ -41,6 +45,8 @@ export function ProjectHero({
   return (
     <ParallaxHero
       backgroundSrc={backgroundSrc}
+      logoSrc={logoSrc}
+      logoAlt={logoAlt}
       title={title}
       tags={tags}
       summary={summary}
@@ -252,14 +258,14 @@ export function RoleTags({ roles }: { roles: string }) {
   const items = roles.split(',').map((r) => r.trim()).filter(Boolean);
   return (
     <div className="mb-14 mt-2">
-      <p className="mb-3 font-sans text-[10px] font-semibold uppercase tracking-[0.2em] text-muted/40">
+      <p className="mb-3 font-sans text-xs font-semibold uppercase tracking-[0.2em] text-muted/40">
         Meu papel
       </p>
       <div className="flex flex-wrap gap-2">
         {items.map((role) => (
           <span
             key={role}
-            className="inline-flex items-center rounded-full border border-line bg-white px-3.5 py-1.5 font-sans text-xs font-medium text-muted"
+            className="inline-flex items-center rounded-full border border-line bg-white px-3.5 py-1.5 font-sans text-sm font-medium text-muted"
           >
             {role}
           </span>
@@ -319,13 +325,13 @@ export function FindingCard({
       </div>
       <div className="mt-7 grid gap-5 border-t border-line pt-7 md:grid-cols-2">
         <div>
-          <p className="mb-1.5 font-sans text-[9px] font-bold uppercase tracking-[0.2em] text-muted/40">
+          <p className="mb-1.5 font-sans text-xs font-bold uppercase tracking-[0.2em] text-muted/40">
             Fonte
           </p>
-          <p className="font-sans text-xs leading-5 text-muted/70">{source}</p>
+          <p className="font-sans text-sm leading-6 text-muted/70">{source}</p>
         </div>
         <div>
-          <p className="mb-1.5 font-sans text-[9px] font-bold uppercase tracking-[0.2em] text-muted/40">
+          <p className="mb-1.5 font-sans text-xs font-bold uppercase tracking-[0.2em] text-muted/40">
             Decisão gerada
           </p>
           <p className="font-sans text-sm font-medium leading-6 text-ink">{decision}</p>
@@ -339,17 +345,21 @@ export function FindingCard({
 
 export function HypothesisCards({
   header,
+  columns = 3,
   children,
 }: {
   header: string;
+  columns?: 2 | 3;
   children: React.ReactNode;
 }) {
   return (
     <div className="my-10">
-      <p className="mb-5 font-sans text-[10px] font-semibold uppercase tracking-[0.2em] text-muted/60">
+      <p className="mb-5 font-sans text-xs font-semibold uppercase tracking-[0.2em] text-muted/60">
         {header}
       </p>
-      <div className="grid gap-4 md:grid-cols-3">{children}</div>
+      <div className={columns === 2 ? 'grid gap-4 md:grid-cols-2' : 'grid gap-4 md:grid-cols-3'}>
+        {children}
+      </div>
     </div>
   );
 }
@@ -379,7 +389,7 @@ export function HypothesisCard({
       </div>
       <span
         className={[
-          'mt-6 font-sans text-[10px] font-bold uppercase tracking-[0.2em]',
+          'mt-6 font-sans text-xs font-bold uppercase tracking-[0.2em]',
           isChosen ? 'text-accent' : 'text-muted/40',
         ].join(' ')}
       >

@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="220" height="56" viewBox="0 0 220 56">
+  <circle cx="28" cy="28" r="22" fill="#3451D1"/>
+  <path d="M20 36c4-2 6-8 6-14m8 0c0 10-3 14-6 16" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+  <text x="62" y="37" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="bold" fill="#3451D1">pipo saúde</text>
+</svg>
