@@ -36,8 +36,8 @@ export function ParallaxHero({ backgroundSrc, title, tags, summary, year, impact
         marginTop: '0',
       }}
     >
-      {/* Background block — flush in the top-right corner, ~60% of the hero, rises as user scrolls */}
-      <div className="absolute right-0 top-0 overflow-hidden" style={{ width: '60%', height: '60%' }}>
+      {/* Background block — full-bleed on mobile/tablet, flush top-right at ~60% from lg up, rises as user scrolls */}
+      <div className="absolute inset-0 overflow-hidden lg:inset-auto lg:right-0 lg:top-0 lg:h-[60%] lg:w-[60%]">
         <div
           ref={bgRef}
           className="absolute inset-0 will-change-transform"
@@ -47,8 +47,7 @@ export function ParallaxHero({ backgroundSrc, title, tags, summary, year, impact
             src={backgroundSrc}
             alt=""
             aria-hidden
-            className="h-full w-full object-cover"
-            style={{ objectPosition: 'right top' }}
+            className="h-full w-full object-cover object-right-bottom lg:object-right-top"
           />
         </div>
 
