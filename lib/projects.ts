@@ -12,6 +12,7 @@ export type ProjectFrontmatter = {
   impact: string;
   tags: string[];
   thumbnail: string;
+  customHero?: boolean;
 };
 
 export type Project = ProjectFrontmatter & {

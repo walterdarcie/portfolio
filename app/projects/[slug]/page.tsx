@@ -49,52 +49,56 @@ export default async function ProjectPage({ params }: { params: { slug: string }
         Todos os projetos
       </Link>
 
-      {/* Header */}
-      <header className="mt-10 border-b border-line pb-12 animate-fade-up">
-        <div className="flex flex-wrap items-center gap-2 font-sans text-xs font-semibold uppercase tracking-wider text-accent">
-          {project.tags.slice(0, 2).map((tag, i) => (
-            <span key={tag} className="flex items-center gap-2">
-              {i > 0 && <span className="text-line">·</span>}
-              {tag}
-            </span>
-          ))}
-        </div>
+      {!project.customHero && (
+        <>
+          {/* Header */}
+          <header className="mt-10 border-b border-line pb-12 animate-fade-up">
+            <div className="flex flex-wrap items-center gap-2 font-sans text-xs font-semibold uppercase tracking-wider text-accent">
+              {project.tags.slice(0, 2).map((tag, i) => (
+                <span key={tag} className="flex items-center gap-2">
+                  {i > 0 && <span className="text-line">·</span>}
+                  {tag}
+                </span>
+              ))}
+            </div>
 
-        <h1
-          className="animate-fade-up delay-100 mt-4 font-serif font-semibold leading-tight text-ink"
-          style={{ fontSize: 'clamp(2.2rem, 5vw, 4rem)' }}
-        >
-          {project.title}
-        </h1>
+            <h1
+              className="animate-fade-up delay-100 mt-4 font-serif font-semibold leading-tight text-ink"
+              style={{ fontSize: 'clamp(2.2rem, 5vw, 4rem)' }}
+            >
+              {project.title}
+            </h1>
 
-        <p className="animate-fade-up delay-200 mt-5 max-w-2xl font-sans text-lg leading-8 text-muted">
-          {project.summary}
-        </p>
+            <p className="animate-fade-up delay-200 mt-5 max-w-2xl font-sans text-lg leading-8 text-muted">
+              {project.summary}
+            </p>
 
-        {/* Meta row */}
-        <div className="animate-fade-up delay-300 mt-8 flex flex-wrap gap-6">
-          <div className="flex flex-col gap-1">
-            <span className="font-sans text-[10px] uppercase tracking-[0.2em] text-muted/50">Ano</span>
-            <span className="font-sans text-sm font-medium text-ink">{project.date}</span>
+            {/* Meta row */}
+            <div className="animate-fade-up delay-300 mt-8 flex flex-wrap gap-6">
+              <div className="flex flex-col gap-1">
+                <span className="font-sans text-[10px] uppercase tracking-[0.2em] text-muted/50">Ano</span>
+                <span className="font-sans text-sm font-medium text-ink">{project.date}</span>
+              </div>
+              <div className="flex flex-col gap-1">
+                <span className="font-sans text-[10px] uppercase tracking-[0.2em] text-muted/50">Impacto</span>
+                <span className="font-sans text-sm font-medium text-accent">{project.impact}</span>
+              </div>
+            </div>
+          </header>
+
+          {/* Thumbnail — full viewport bleed */}
+          <div
+            className="animate-fade-up delay-400 my-12"
+            style={{ width: '100vw', marginLeft: 'calc(-50vw + 50%)' }}
+          >
+            <img
+              src={project.thumbnail}
+              alt={project.title}
+              className="h-auto w-full"
+            />
           </div>
-          <div className="flex flex-col gap-1">
-            <span className="font-sans text-[10px] uppercase tracking-[0.2em] text-muted/50">Impacto</span>
-            <span className="font-sans text-sm font-medium text-accent">{project.impact}</span>
-          </div>
-        </div>
-      </header>
-
-      {/* Thumbnail — full viewport bleed */}
-      <div
-        className="animate-fade-up delay-400 my-12"
-        style={{ width: '100vw', marginLeft: 'calc(-50vw + 50%)' }}
-      >
-        <img
-          src={project.thumbnail}
-          alt={project.title}
-          className="h-auto w-full"
-        />
-      </div>
+        </>
+      )}
 
       {/* Content */}
       <div className="max-w-[860px] mx-auto prose-editorial">{content}</div>
