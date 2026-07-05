@@ -36,23 +36,25 @@ export function ParallaxHero({ backgroundSrc, title, tags, summary, year, impact
         marginTop: '0',
       }}
     >
-      {/* Parallax background — anchored bottom-right, rises as user scrolls */}
-      <div
-        ref={bgRef}
-        className="absolute inset-0 will-change-transform"
-        style={{ top: '-20%', height: '140%' }}
-      >
-        <img
-          src={backgroundSrc}
-          alt=""
-          aria-hidden
-          className="h-full w-full object-cover"
-          style={{ objectPosition: 'right bottom' }}
-        />
-      </div>
+      {/* Background block — flush in the top-right corner, ~60% of the hero, rises as user scrolls */}
+      <div className="absolute right-0 top-0 overflow-hidden" style={{ width: '60%', height: '60%' }}>
+        <div
+          ref={bgRef}
+          className="absolute inset-0 will-change-transform"
+          style={{ top: '-20%', height: '140%' }}
+        >
+          <img
+            src={backgroundSrc}
+            alt=""
+            aria-hidden
+            className="h-full w-full object-cover"
+            style={{ objectPosition: 'right top' }}
+          />
+        </div>
 
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/20" />
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/20" />
+      </div>
 
       {/* Glass card */}
       <div className="absolute inset-0 flex items-center justify-center px-5">
