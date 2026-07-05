@@ -26,7 +26,7 @@ export default async function ProjectPage({ params }: { params: { slug: string }
   });
 
   return (
-    <article className="pb-24 pt-12">
+    <article className={`pb-24 ${project.customHero ? 'pt-2' : 'pt-12'}`}>
       {/* Back link */}
       <Link
         href="/projects"

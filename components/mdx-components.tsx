@@ -10,12 +10,15 @@ type ProjectImageProps = {
   width?: number;
   height?: number;
   className?: string;
+  align?: 'stretch' | 'center';
+  maxWidth?: string;
 };
 
 type ProjectVideoProps = {
   src: string;
   caption?: string;
   className?: string;
+  maxWidth?: string;
 };
 
 // ── Hero ──────────────────────────────────────────────────────────────────────
@@ -23,13 +26,28 @@ type ProjectVideoProps = {
 export function ProjectHero({
   backgroundSrc,
   title,
-  subtitle,
+  tags,
+  summary,
+  year,
+  impact,
 }: {
   backgroundSrc: string;
   title: string;
-  subtitle: string;
+  tags?: string;
+  summary?: string;
+  year?: string;
+  impact?: string;
 }) {
-  return <ParallaxHero backgroundSrc={backgroundSrc} title={title} subtitle={subtitle} />;
+  return (
+    <ParallaxHero
+      backgroundSrc={backgroundSrc}
+      title={title}
+      tags={tags}
+      summary={summary}
+      year={year}
+      impact={impact}
+    />
+  );
 }
 
 // ── Standard image ────────────────────────────────────────────────────────────
@@ -41,11 +59,23 @@ export function ProjectImage({
   width = 1600,
   height = 1000,
   className,
+  align = 'stretch',
+  maxWidth,
 }: ProjectImageProps) {
+  const centered = align === 'center';
   return (
-    <figure className={className}>
-      <Image src={src} alt={alt} width={width} height={height} className="h-auto w-full rounded-sm" />
-      {caption ? <figcaption>{caption}</figcaption> : null}
+    <figure
+      className={[centered ? 'flex flex-col items-center' : '', className].filter(Boolean).join(' ')}
+      style={maxWidth ? { maxWidth, marginLeft: 'auto', marginRight: 'auto' } : undefined}
+    >
+      <Image
+        src={src}
+        alt={alt}
+        width={width}
+        height={height}
+        className={centered ? 'h-auto max-w-full rounded-sm' : 'h-auto w-full rounded-sm'}
+      />
+      {caption ? <figcaption className={centered ? 'text-center' : ''}>{caption}</figcaption> : null}
     </figure>
   );
 }
@@ -88,10 +118,10 @@ export function ProjectImageFloat({
   return (
     <figure
       className={[
-        'my-6 w-full md:w-[50%]',
+        'my-6 w-full md:w-[40%]',
         side === 'right'
-          ? 'md:float-right md:ml-10 md:clear-right xl:-mr-32'
-          : 'md:float-left md:mr-10 md:clear-left xl:-ml-32',
+          ? 'md:float-right md:ml-10 md:clear-right xl:-mr-28'
+          : 'md:float-left md:mr-10 md:clear-left xl:-ml-28',
       ].join(' ')}
     >
       <Image src={src} alt={alt} width={width} height={height} className="h-auto w-full rounded-sm" />
@@ -100,20 +130,44 @@ export function ProjectImageFloat({
   );
 }
 
+// ── Persona image — centered, natural size ────────────────────────────────────
+
+export function PersonaImage({
+  src,
+  alt,
+  width = 684,
+  height = 341,
+}: {
+  src: string;
+  alt: string;
+  width?: number;
+  height?: number;
+}) {
+  return (
+    <figure className="my-8 flex justify-center">
+      <Image
+        src={src}
+        alt={alt}
+        width={width}
+        height={height}
+        className="h-auto max-w-full rounded-sm"
+      />
+    </figure>
+  );
+}
+
 // ── Video — autoplay loop muted, like a GIF ───────────────────────────────────
 
-export function ProjectVideo({ src, caption, className }: ProjectVideoProps) {
+export function ProjectVideo({ src, caption, className, maxWidth }: ProjectVideoProps) {
   return (
-    <figure className={className}>
-      <video
-        src={src}
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="h-auto w-full rounded-lg"
-      />
-      {caption ? <figcaption className="mt-3 font-sans text-sm text-muted">{caption}</figcaption> : null}
+    <figure
+      className={className}
+      style={maxWidth ? { maxWidth, marginLeft: 'auto', marginRight: 'auto' } : undefined}
+    >
+      <video src={src} autoPlay loop muted playsInline className="h-auto w-full rounded-lg" />
+      {caption ? (
+        <figcaption className="mt-3 font-sans text-sm text-muted">{caption}</figcaption>
+      ) : null}
     </figure>
   );
 }
@@ -128,21 +182,16 @@ export function ProjectVideoFloat({
   return (
     <figure
       className={[
-        'my-6 w-full md:w-[48%]',
+        'my-6 w-full md:w-[44%]',
         side === 'right'
-          ? 'md:float-right md:ml-10 md:clear-right xl:-mr-32'
-          : 'md:float-left md:mr-10 md:clear-left xl:-ml-32',
+          ? 'md:float-right md:ml-10 md:clear-right xl:-mr-28'
+          : 'md:float-left md:mr-10 md:clear-left xl:-ml-28',
       ].join(' ')}
     >
-      <video
-        src={src}
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="h-auto w-full rounded-lg"
-      />
-      {caption ? <figcaption className="mt-2 font-sans text-sm text-muted">{caption}</figcaption> : null}
+      <video src={src} autoPlay loop muted playsInline className="h-auto w-full rounded-lg" />
+      {caption ? (
+        <figcaption className="mt-2 font-sans text-sm text-muted">{caption}</figcaption>
+      ) : null}
     </figure>
   );
 }
@@ -151,7 +200,7 @@ export function ProjectVideoFloat({
 
 export function SideBySide({ children }: { children: React.ReactNode }) {
   return (
-    <div className="my-10 grid items-start gap-5 md:grid-cols-2 [&_figure]:my-0">
+    <div className="my-10 grid items-start gap-6 md:grid-cols-2 [&_figure]:my-0">
       {children}
     </div>
   );
@@ -171,8 +220,8 @@ export function ContextCard({
   children: React.ReactNode;
 }) {
   return (
-    <div className="flex flex-col gap-4 rounded-xl bg-white p-8 shadow-sm ring-1 ring-line/80">
-      <span className="font-sans text-[10px] font-semibold uppercase tracking-[0.2em] text-accent">
+    <div className="flex flex-col gap-4 rounded-xl bg-white p-8 shadow-sm ring-1 ring-line/70">
+      <span className="font-sans text-xs font-semibold uppercase tracking-[0.15em] text-accent">
         {title}
       </span>
       <div className="font-sans text-base leading-7 text-muted [&_p]:mt-0 [&_p]:leading-7 [&_strong]:font-semibold [&_strong]:text-ink">
@@ -182,57 +231,60 @@ export function ContextCard({
   );
 }
 
-// ── Business impact ───────────────────────────────────────────────────────────
+// ── Business impact — white card, centered, accent heading ────────────────────
 
 export function BusinessImpact({ children }: { children: React.ReactNode }) {
   return (
-    <div className="my-14 rounded-2xl bg-ink px-8 py-10 md:px-12 md:py-12">
-      <span className="font-sans text-[10px] font-semibold uppercase tracking-[0.2em] text-white/50">
+    <div className="my-14 rounded-2xl border border-line/50 bg-white px-8 py-12 text-center shadow-sm md:px-16 md:py-14">
+      <p className="font-serif text-3xl font-semibold text-accent md:text-4xl">
         Business impact
-      </span>
-      <div className="mt-5 font-sans text-xl leading-9 text-white md:text-2xl [&_p]:mt-0 [&_strong]:font-bold [&_strong]:text-white">
+      </p>
+      <div className="mt-8 font-sans text-xl leading-9 text-muted md:text-2xl md:leading-[1.6] [&_p]:mt-0 [&_strong]:font-bold [&_strong]:text-accent">
         {children}
       </div>
     </div>
   );
 }
 
-// ── Role tags ─────────────────────────────────────────────────────────────────
+// ── Role tags — discrete label + pill chips ───────────────────────────────────
 
 export function RoleTags({ roles }: { roles: string }) {
   const items = roles.split(',').map((r) => r.trim()).filter(Boolean);
   return (
-    <div className="my-5 flex flex-wrap gap-2">
-      {items.map((role) => (
-        <span
-          key={role}
-          className="inline-flex items-center rounded-full border border-line bg-white px-3.5 py-1.5 font-sans text-xs font-medium text-muted"
-        >
-          {role}
-        </span>
-      ))}
+    <div className="mb-14 mt-2">
+      <p className="mb-3 font-sans text-[10px] font-semibold uppercase tracking-[0.2em] text-muted/40">
+        Meu papel
+      </p>
+      <div className="flex flex-wrap gap-2">
+        {items.map((role) => (
+          <span
+            key={role}
+            className="inline-flex items-center rounded-full border border-line bg-white px-3.5 py-1.5 font-sans text-xs font-medium text-muted"
+          >
+            {role}
+          </span>
+        ))}
+      </div>
     </div>
   );
 }
 
-// ── Discovery list ────────────────────────────────────────────────────────────
+// ── Discovery list — plain minimal style ──────────────────────────────────────
 
 export function DiscoveryList({ children }: { children: React.ReactNode }) {
   return (
-    <div className="my-8 grid gap-2.5 sm:grid-cols-2 lg:grid-cols-4">
+    <ul className="my-5 list-none space-y-1.5 pl-0">
       {children}
-    </div>
+    </ul>
   );
 }
 
 export function DiscoveryItem({ children }: { children: React.ReactNode }) {
   return (
-    <div className="flex items-start gap-2.5 rounded-lg border border-line bg-white px-4 py-3.5">
-      <span className="mt-0.5 shrink-0 text-accent" aria-hidden>
-        →
-      </span>
-      <span className="font-sans text-sm leading-6 text-muted">{children}</span>
-    </div>
+    <li className="flex items-baseline gap-3 font-sans text-base leading-7 text-muted">
+      <span className="shrink-0 text-sm text-accent/50">–</span>
+      <span>{children}</span>
+    </li>
   );
 }
 
@@ -258,7 +310,7 @@ export function FindingCard({
           {stat}
         </div>
       ) : label ? (
-        <div className="mb-4 font-sans text-[10px] font-semibold uppercase tracking-[0.2em] text-accent">
+        <div className="mb-4 font-sans text-sm font-semibold text-accent">
           {label}
         </div>
       ) : null}
@@ -318,9 +370,7 @@ export function HypothesisCard({
     <div
       className={[
         'flex flex-col justify-between rounded-2xl p-6',
-        isChosen
-          ? 'border-2 border-accent bg-accent/5'
-          : 'border border-line bg-white',
+        isChosen ? 'border-2 border-accent bg-accent/5' : 'border border-line bg-white',
       ].join(' ')}
     >
       <div>
@@ -385,6 +435,7 @@ export const mdxComponents = {
   ProjectImage,
   ProjectImageBleed,
   ProjectImageFloat,
+  PersonaImage,
   ProjectVideo,
   ProjectVideoFloat,
   SideBySide,

@@ -1,9 +1,9 @@
 ---
 title: "Collections Hotmart"
-summary: "Estruturei do zero a régua de Collections do primeiro produto de crédito da Hotmart — o Parcelado Hotmart — transformando a cobrança em experiência dentro do próprio ecossistema do comprador."
+summary: "Estruturei do zero a régua de Collections do primeiro produto de crédito da Hotmart, o Parcelado Hotmart, transformando a cobrança em experiência dentro do próprio ecossistema do comprador."
 date: "2025"
 order: 1
-impact: "Inadimplência do MVP de ~30% para 14% — com ~40% das recuperações vindas dos canais proprietários"
+impact: "Inadimplência de ~30% para 14%"
 tags:
   - Product Design
   - Fintech
@@ -15,7 +15,10 @@ customHero: true
 <ProjectHero
   backgroundSrc="/images/projects/collections-hotmart/bg-collections.png"
   title="Collections Hotmart"
-  subtitle="Product design case"
+  tags="Product Design · Fintech · Collections"
+  summary="Estruturei do zero a régua de Collections do primeiro produto de crédito da Hotmart, o Parcelado Hotmart, transformando a cobrança em experiência dentro do próprio ecossistema do comprador."
+  year="2025"
+  impact="Inadimplência de ~30% para 14%"
 />
 
 <ContextCards>
@@ -23,19 +26,19 @@ customHero: true
     A Hotmart estava lançando seu **primeiro produto de crédito, o Parcelado Hotmart**, um BNPL (buy now, pay later) que permite ao comprador parcelar cursos sem comprometer o limite do cartão. Diferente de qualquer ferramenta externa de cobrança, a Hotmart cobra **dentro dos próprios canais**, onde o aluno aprende, consome e confia: o app, o Hotmart Club e a área Minhas Compras, além do Hub de Pagamentos.
   </ContextCard>
   <ContextCard title="O problema">
-    Apesar de já existirem mecanismos internos de parcelamento, não havia uma **régua estruturada de Collections**. O resultado era uma inadimplência em torno de **30%**, que colocava o MVP em risco e inviabilizava a operação de um BNPL competitivo. A cobrança dependia de canais externos e pouco eficazes — o e-mail respondia por apenas 5% dos acessos à gestão de pagamentos.
+    Apesar de já existirem mecanismos internos de parcelamento, não havia uma **régua estruturada de Collections**. O resultado era uma inadimplência em torno de **30%**, que colocava o MVP em risco e inviabilizava a operação de um BNPL competitivo. A cobrança dependia de canais externos e pouco eficazes, e o e-mail respondia por apenas 5% dos acessos à gestão de pagamentos.
   </ContextCard>
 </ContextCards>
-
-## Meu papel
-
-<RoleTags roles="Estratégia de produto,Discovery,Modelagem de comportamento,Orquestração cross-squad,Service Design,UX Writing,User Testing,UI Design" />
 
 <BusinessImpact>
   Inadimplência do MVP reduzida de cerca de **30% para 14%**, superando a meta de 15%, com projeção de fechar o ano em torno de **7%**. Os canais no ambiente de estudos, foco da solução de design, responderam por cerca de **40% das recuperações**.
 </BusinessImpact>
 
+<RoleTags roles="Estratégia de produto,Discovery,Modelagem de comportamento,Orquestração cross-squad,Service Design,UX Writing,User Testing,UI Design" />
+
 ## Da evidência à decisão
+
+Antes de qualquer solução, estruturamos um discovery robusto com múltiplas frentes de pesquisa para entender comportamentos, identificar oportunidades e gerar decisões acionáveis:
 
 <DiscoveryList>
   <DiscoveryItem>Análise de comunicação e fluxos existentes</DiscoveryItem>
@@ -59,7 +62,7 @@ Em testes de ligações ativas para compradores com pagamento atrasado, foi cons
 <FindingCard
   stat="2,5%"
   source="Análise de comunicação · CSAT do ambiente de pagamentos · Análise de performance · Benchmark"
-  decision="O acesso à Gestão de Pagamentos deveria ser facilitado dentro da jornada de consumo do conteúdo, não dependendo apenas de canais externos como e-mail."
+  decision="O acesso à Gestão de Pagamentos deveria ser facilitado dentro da jornada de consumo do conteúdo, sem depender apenas de canais externos como e-mail."
 >
 dos 3,8M de acessos/mês ao ambiente de gestão dos cursos comprados com alguma pendência chegavam à Gestão de Pagamentos. O e-mail respondia por apenas **7% dos acessos**. E 22% dos respondentes com pendência financeira **não sabia o status do próprio pagamento**. O CSAT para quem estava atrasado era 13p.p. menor.
 </FindingCard>
@@ -67,27 +70,19 @@ dos 3,8M de acessos/mês ao ambiente de gestão dos cursos comprados com alguma 
 <FindingCard
   stat="85%"
   source="Fake door de novas soluções de pagamento · Entrevistas em profundidade com clientes"
-  decision="Existia demanda ativa para novos fluxos de pagamento parcial, não dependendo apenas do pagamento integral presente na plataforma."
+  decision="Existia demanda ativa para novos fluxos de pagamento parcial, sem depender apenas do pagamento integral presente na plataforma."
 >
-dos que interagiram com a Fake Door no ambiente de pagamentos buscavam ativamente por um **pagamento parcial da dívida** — sinalizando a necessidade de mais flexibilidade no processo de regularização.
+dos que interagiram com a Fake Door no ambiente de pagamentos buscavam ativamente por um **pagamento parcial da dívida**, sinalizando a necessidade de mais flexibilidade no processo de regularização.
 </FindingCard>
 
 Os achados sustentaram quatro pilares para o trabalho de design:
 
-- **Diversificação de canais** — WhatsApp, SMS e push, além do e-mail
-- **Comunicação intencional** — contatos escalonados em D0, D5, D10 e D15
-- **Prevenção desde o pós-compra** — régua que começa logo após a compra
-- **Ecossistema Hotmart como vantagem** — inserindo a cobrança onde o aluno consome o conteúdo
+- **Diversificação de canais:** WhatsApp, SMS e push, além do e-mail
+- **Comunicação intencional:** contatos escalonados em D0, D5, D10 e D15
+- **Prevenção desde o pós-compra:** régua que começa logo após a compra
+- **Ecossistema Hotmart como vantagem:** inserindo a cobrança onde o aluno consome o conteúdo
 
 ## O modelo comportamental de atraso
-
-<ProjectImageFloat
-  src="/images/projects/collections-hotmart/modelo-comportamental.png"
-  alt="Modelo comportamental de atraso, dividido entre atrasos involuntários e voluntários"
-  width={900}
-  height={1200}
-  side="right"
-/>
 
 Com toda a informação em mãos, trabalhamos em um mapa de comportamentos encontrados. Essa modelagem virou a base de toda a estratégia: ela orienta hipóteses de prevenção, intervenção e correção, calibra canais, copy e tom de voz, guia a operação de cobrança e direciona a priorização de features.
 
@@ -97,34 +92,40 @@ Com toda a informação em mãos, trabalhamos em um mapa de comportamentos encon
 
 Cada ramo pede uma resposta de design completamente diferente: para um, bastam lembretes e facilidade; para o outro, é preciso escalar consequências e calibrar incentivos.
 
+<ProjectImage
+  src="/images/projects/collections-hotmart/modelo-comportamental.png"
+  alt="Modelo comportamental de atraso, dividido entre atrasos involuntários e voluntários"
+  width={1560}
+  height={1938}
+  maxWidth="560px"
+/>
+
 <Pullquote>
   Um problema complexo virou um mapa simples e acionável.
 </Pullquote>
 
-<div style={{clear: 'both'}} />
-
 ## Priorização por intenção de atraso
 
-Com o modelo em mãos, cruzei as **alavancas de Collections** com cada comportamento. A matriz tornou explícito onde a comunicação preventiva tem impacto alto, onde a flexibilização de pagamento resolve e onde só a restrição de elegibilidade muda o jogo — evitando aplicar o mesmo remédio para problemas distintos.
+Com o modelo em mãos, cruzei as **alavancas de Collections** com cada comportamento. A matriz tornou explícito onde a comunicação preventiva tem impacto alto, onde a flexibilização de pagamento resolve e onde só a restrição de elegibilidade muda o jogo, evitando aplicar o mesmo remédio para problemas distintos.
 
 <ProjectImageBleed
   src="/images/projects/collections-hotmart/priorizacao.png"
   alt="Matriz de priorização cruzando alavancas de Collections com cada tipo de comportamento de atraso"
-  caption="Alavancas × comportamentos: a matriz que traduziu o modelo em roadmap e em decisões de design."
+  caption="Alavancas versus comportamentos: a matriz que traduziu o modelo em roadmap e em decisões de design."
   width={2200}
   height={1115}
 />
 
 ## A nova régua de Collections
 
-A régua se distribui ao longo de toda a jornada, em duas fases — **Prevenção e Correção** — e se apoia em quatro pilares: diversificação de canais (WhatsApp, SMS e push, além do e-mail), comunicação intencional e escalonada, uma régua preventiva que começa logo após a compra e o **ecossistema Hotmart como vantagem competitiva**, inserindo a cobrança onde o aluno consome o conteúdo.
+A régua se distribui ao longo de toda a jornada, em duas fases: **Prevenção e Correção**. Ela se apoia em quatro pilares: diversificação de canais (WhatsApp, SMS e push, além do e-mail), comunicação intencional e escalonada, uma régua preventiva que começa logo após a compra e o **ecossistema Hotmart como vantagem competitiva**, inserindo a cobrança onde o aluno consome o conteúdo.
 
 <ProjectImageBleed
   src="/images/projects/collections-hotmart/regua.png"
   alt="Matriz da nova régua de Collections, cruzando canais com os estágios da jornada de prevenção e correção"
   caption="A régua como sistema: cada canal mapeado contra os estágios da jornada, da comunicação preventiva pós-compra aos alertas de atraso."
   width={2000}
-  height={1648}
+  height={1669}
 />
 
 ## Craft: as entregas de design
@@ -133,43 +134,38 @@ Para dar rosto ao modelo, sintetizei dois perfis: **Manuel, o Esquecido**, repre
 
 ### Manuel, o Esquecido
 
-<ProjectImageFloat
+<PersonaImage
   src="/images/projects/collections-hotmart/manuel-esquecido.png"
   alt="Persona Manuel, o Esquecido"
-  width={600}
-  height={750}
-  side="right"
+  width={684}
+  height={341}
 />
 
 Esquece a data, valoriza lembretes antecipados e quer pagar sem complicação. Lembretes funcionam bem, principalmente no WhatsApp. Na hora de pagar, o fluxo precisa ser fácil de encontrar.
 
 #### A aposta
 
-Antes, o aviso só chegava na data do vencimento, com prazo curtíssimo. Redesenhamos a régua para:
-
-- Começar logo **após a compra**, com envio **antecipado da fatura** e lembretes escalonados por e-mail, WhatsApp e SMS.
-- Levar a cobrança para dentro do Hub, Club e App, onde o Manuel consome o conteúdo. Como ele já queria pagar, bastava facilitar e lembrar.
-
-<div style={{clear: 'both'}} />
+Antes, o aviso só chegava na data do vencimento, com prazo curtíssimo. Redesenhamos a régua para começar logo **após a compra**, com envio **antecipado da fatura** e lembretes escalonados por e-mail, WhatsApp e SMS. Levamos a cobrança para dentro do Hub, Club e App, onde o Manuel consome o conteúdo. Como ele já queria pagar, bastava facilitar e lembrar.
 
 #### Atualizando a régua de comunicação
 
-O e-mail de onboarding antigo não esclarecia o compromisso de pagamento e parecia spam. Redesenhei a comunicação para **deixar claro o tipo de compra, reforçar o compromisso e dar acesso direto à gestão de pagamentos** — e padronizei toda a régua, incluindo elementos que faltavam, como código Pix e QR code, reduzindo a sensação de spam e a fricção no pagamento.
+O e-mail de onboarding antigo não esclarecia o compromisso de pagamento e parecia spam. Redesenhei a comunicação para **deixar claro o tipo de compra, reforçar o compromisso e dar acesso direto à gestão de pagamentos**, padronizando toda a régua e incluindo elementos que faltavam, como código Pix e QR code.
 
-<SideBySide>
-  <ProjectImage
-    src="/images/projects/collections-hotmart/email-onboarding.png"
-    alt="E-mail de onboarding redesenhado, com compromisso de pagamento, resumo da compra e acesso à gestão de pagamentos"
-    width={800}
-    height={1400}
-  />
-  <ProjectVideo
-    src="/images/projects/collections-hotmart/jornada%20preventiva.mov"
-    caption="A jornada preventiva em ação: notificações escalonadas no canal certo, na hora certa."
-  />
-</SideBySide>
+<ProjectImage
+  src="/images/projects/collections-hotmart/email-onboarding.png"
+  alt="E-mail de onboarding redesenhado, com compromisso de pagamento, resumo da compra e acesso à gestão de pagamentos"
+  width={1462}
+  height={2000}
+  maxWidth="480px"
+/>
 
-#### A porta que ninguém encontrava
+<ProjectVideo
+  src="/images/projects/collections-hotmart/jornada%20preventiva.mov"
+  caption="A jornada preventiva em ação: notificações escalonadas no canal certo, na hora certa."
+  maxWidth="380px"
+/>
+
+### A porta que ninguém encontrava
 
 A Gestão de Pagamentos existia, mas vivia enterrada no histórico: hierarquia inconsistente, sem separação entre cards e sem acesso na primeira dobra. Tratei a decisão de pagamento como parte do consumo do curso, reorganizando o card e a modal de detalhes para trazer um **bloco de pagamento com link direto à gestão, logo na primeira dobra**, e um sistema de estados padronizado.
 
@@ -177,45 +173,37 @@ A Gestão de Pagamentos existia, mas vivia enterrada no histórico: hierarquia i
   src="/images/projects/collections-hotmart/novos-cards.png"
   alt="Novos cards de compra com sistema de estados e bloco de pagamento na primeira dobra"
   caption="Encontrabilidade: o bloco de pagamento sobe para a primeira dobra, com hierarquia e estados padronizados."
-  width={1700}
-  height={1299}
+  width={381}
+  height={282}
+  align="center"
 />
 
-<ProjectVideoFloat
+<ProjectVideo
   src="/images/projects/collections-hotmart/hub-modal-regularizacao.mov"
-  side="right"
   caption="Hub de pagamentos: modal de regularização acessível diretamente no fluxo de consumo."
+  maxWidth="380px"
 />
 
 Esse trabalho de encontrabilidade respondeu por um **aumento de 38% na taxa de recuperação** vinda desse fluxo.
 
-<div style={{clear: 'both'}} />
-
 ### Carla, a Esperançosa
 
-<ProjectImageFloat
+<PersonaImage
   src="/images/projects/collections-hotmart/carla-esperancosa.png"
   alt="Persona Carla, a Esperançosa"
-  width={600}
-  height={750}
-  side="right"
+  width={684}
+  height={341}
 />
 
 Sabe do atraso, posterga e só reage quando vai perder o acesso. Para ela, lembrar não bastava: as mensagens deveriam citar possível perda de acesso ao conteúdo e, em casos mais graves, apontar consequências como negativação. As comunicações via WhatsApp e e-mail ajudavam, mas a grande diferença estava em dificultar o acesso ao conteúdo.
 
 #### A aposta
 
-Para a Carla, só lembrar não resolveria — os dados mostravam intenção de não pagar. O direcional foi calibrar a resposta a cada comportamento:
-
-- Para quem não compreendia o compromisso, reforçamos a consequência no consumo do conteúdo, bloqueando temporariamente o acesso.
-- Caso houvesse dificuldade financeira, havia flexibilização de pagamento.
-- Para quem, ainda assim, não regularizasse a situação, avançamos em validação (KYC) e negativação.
-
-<div style={{clear: 'both'}} />
+Para a Carla, só lembrar não resolveria: os dados mostravam intenção de não pagar. O direcional foi calibrar a resposta a cada comportamento. Para quem não compreendia o compromisso, reforçamos a consequência no consumo do conteúdo, bloqueando temporariamente o acesso. Caso houvesse dificuldade financeira, havia flexibilização de pagamento. Para quem, ainda assim, não regularizasse a situação, avançamos em validação (KYC) e negativação.
 
 ### A modal de sala de aula
 
-O desafio criativo mais difícil. Por regras do FIDC que lastreava o financiamento, **não podíamos cortar o acesso do aluno inadimplente** — bloquear o conteúdo estava fora de cogitação. A hipótese vinha do comportamento "consumo contínuo sem intenção de pagamento".
+O desafio criativo mais difícil. Por regras do FIDC que lastreava o financiamento, **não podíamos cortar o acesso do aluno inadimplente**, então bloquear o conteúdo estava fora de cogitação. A hipótese vinha do comportamento "consumo contínuo sem intenção de pagamento".
 
 Coloquei três opções na mesa e testei cada uma na matriz comportamental:
 
@@ -243,8 +231,8 @@ A lógica foi invertida: **testar primeiro o grau mais leve de fricção, medind
   <ProjectImage
     src="/images/projects/collections-hotmart/modal-sala-2.png"
     alt="Modal de pagamento em atraso aparecendo sobre a aula em vídeo"
-    width={660}
-    height={907}
+    width={1740}
+    height={1706}
   />
   <ProjectVideo
     src="/images/projects/collections-hotmart/modal-atraso.mov"
@@ -261,6 +249,7 @@ Até então, quem tinha parcelas em atraso só conseguia quitar o valor inteiro.
 <ProjectVideo
   src="/images/projects/collections-hotmart/pagamento-parcial.mov"
   caption="O fluxo segura duas pontas: dá saída para a dificuldade financeira e, ao mesmo tempo, reconduz o comprador à recuperação total."
+  maxWidth="380px"
 />
 
 ## Resultados
@@ -271,7 +260,7 @@ Até então, quem tinha parcelas em atraso só conseguia quitar o valor inteiro.
 
 **Ambiente de estudos:** Os canais proprietários no ambiente de estudos (Club, App e Minhas Compras), foco da solução de design, responderam por cerca de **40% das recuperações**.
 
-**Escala e replicação:** A régua virou uma **referência interna e padrão de Financial Services da Hotmart** — usada, por exemplo, no Pix Automático — e base para a expansão internacional de Collections.
+**Escala e replicação:** A régua virou uma **referência interna e padrão de Financial Services da Hotmart**, usada, por exemplo, no Pix Automático, e base para a expansão internacional de Collections.
 
 ## Repercussão e reconhecimento
 
@@ -283,6 +272,6 @@ Até então, quem tinha parcelas em atraso só conseguia quitar o valor inteiro.
 ## Aprendizados
 
 - **Modelar comportamento antes de desenhar telas** alinha squads e transforma um problema difuso em decisões de design objetivas.
-- Em contextos financeiros sensíveis, **empatia é vantagem competitiva** — cobrar como parceiro, e não como algoz, preserva a relação com o comprador e com o Creator.
+- Em contextos financeiros sensíveis, **empatia é vantagem competitiva**: cobrar como parceiro, e não como algoz, preserva a relação com o comprador e com o Creator.
 - **Testar o grau mais leve de fricção primeiro** evita queimar confiança e revela ganhos inesperados: a restrição virou engajamento.
-- Cobrar **dentro do próprio ecossistema** é um diferencial difícil de copiar — e foi onde o design teve maior impacto sobre a recuperação.
+- Cobrar **dentro do próprio ecossistema** é um diferencial difícil de copiar, e foi onde o design teve maior impacto sobre a recuperação.
