@@ -96,9 +96,9 @@ export default function HomePage() {
             +15 anos de trajetória em produto
           </p>
 
-          {/* Full-viewport-width horizontal scroll */}
+          {/* Mobile: full-viewport-width horizontal scroll */}
           <div
-            className="overflow-x-auto scrollbar-hide"
+            className="overflow-x-auto scrollbar-hide md:hidden"
             style={{
               position: 'relative',
               left: '50%',
@@ -106,7 +106,7 @@ export default function HomePage() {
               width: '100vw',
             }}
           >
-            <div className="flex pb-12 pl-6 pr-6 pt-2 md:pl-10 md:pr-10">
+            <div className="flex pb-12 pl-6 pr-6 pt-2">
               {timeline.map((item, i) => (
                 <div key={`${item.company}-${i}`} className="flex w-[220px] shrink-0 flex-col">
                   {/* Dot + connector */}
@@ -141,6 +141,43 @@ export default function HomePage() {
                 </div>
               ))}
             </div>
+          </div>
+
+          {/* Desktop: fills 100% of the container width, no scroll */}
+          <div className="hidden pb-12 pt-2 md:flex md:w-full">
+            {timeline.map((item, i) => (
+              <div key={`${item.company}-${i}`} className="flex min-w-0 flex-1 flex-col">
+                {/* Dot + connector */}
+                <div className="flex items-center">
+                  <div
+                    className={`z-10 h-3 w-3 shrink-0 rounded-full transition-all ${
+                      item.current
+                        ? 'bg-accent shadow-[0_0_0_5px_rgba(241,87,35,0.18)]'
+                        : 'bg-muted/40'
+                    }`}
+                  />
+                  {i < timeline.length - 1 && (
+                    <div className="h-px flex-1 bg-line" />
+                  )}
+                </div>
+                {/* Labels */}
+                <div className="mt-4 pr-5">
+                  <p
+                    className={`font-sans text-xs font-semibold uppercase tracking-[0.14em] ${
+                      item.current ? 'text-accent' : 'text-muted'
+                    }`}
+                  >
+                    {item.company}
+                  </p>
+                  <p className="mt-1.5 font-serif text-base font-semibold leading-tight text-ink">
+                    {item.role}
+                  </p>
+                  <p className="mt-1.5 font-sans text-sm leading-relaxed text-muted">
+                    {item.period}
+                  </p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
