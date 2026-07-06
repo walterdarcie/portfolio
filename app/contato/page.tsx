@@ -3,7 +3,7 @@ import { AnimateOnScroll } from '@/components/animate-on-scroll';
 
 export const metadata: Metadata = {
   title: 'Contato',
-  description: 'Fale com Walter Darcie sobre design de produto, liderança, fintech e novos desafios.',
+  description: 'Fale com Walter Darcie sobre design de produto, liderança, produtos financeiros e novos desafios.',
 };
 
 export default function ContactPage() {
@@ -24,8 +24,8 @@ export default function ContactPage() {
 
       <AnimateOnScroll className="mt-10 max-w-lg">
         <p className="font-sans text-lg leading-8 text-muted">
-          Disponível para conversas sobre design de produto, liderança, fintech
-          e novos desafios.
+          Disponível para conversas sobre design de produto, liderança, produtos
+          financeiros e novos desafios.
         </p>
       </AnimateOnScroll>
 

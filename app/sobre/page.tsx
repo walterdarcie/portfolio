@@ -28,7 +28,7 @@ export default function AboutPage() {
       <AnimateOnScroll className="mt-16 max-w-2xl">
         <p className="font-sans text-lg leading-8 text-muted">
           Staff Product Designer com mais de 15 anos de trajetória em produtos digitais
-          que atravessam B2B e B2C em entretenimento, healthtech e fintech.
+          que atravessam B2B e B2C em edtechs, healthtechs e entretenimento.
         </p>
       </AnimateOnScroll>
 
@@ -43,7 +43,7 @@ export default function AboutPage() {
 
       <AnimateOnScroll className="mt-6 max-w-2xl" delay={200}>
         <p className="font-sans text-lg leading-8 text-muted">
-          Antes de fintech, passei pela healthtech na Bionexo e Pipo Saúde, onde liderei
+          Antes da Hotmart, passei pela healthtech na Bionexo e Pipo Saúde, onde liderei
           times de design em produtos SaaS B2B e plataformas de benefícios corporativos.
           Comecei a carreira em entretenimento digital na Fundação Cásper Líbero, onde
           construí a base em UX, sistemas de design e desenvolvimento front-end.
@@ -55,7 +55,7 @@ export default function AboutPage() {
         <div className="grid gap-8 sm:grid-cols-3">
           {[
             { value: '+15', label: 'anos em produto digital' },
-            { value: 'B2B+B2C', label: 'edtech, healthtech, fintech' },
+            { value: 'B2B+B2C', label: 'edtech, healthtech, entretenimento' },
             { value: 'LATAM', label: 'produtos financeiros ativos' },
           ].map((stat) => (
             <div key={stat.label}>
