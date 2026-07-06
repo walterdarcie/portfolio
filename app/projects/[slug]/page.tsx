@@ -52,12 +52,12 @@ export default async function ProjectPage({ params }: { params: { slug: string }
       {/* Back link */}
       <Link
         href="/projects"
-        className="inline-flex items-center gap-2 font-sans text-sm text-muted no-underline transition-colors hover:text-ink"
+        className="mb-10 mt-2 inline-flex items-center gap-2.5 font-sans text-base text-muted no-underline transition-colors hover:text-ink"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="12"
-          height="12"
+          width="15"
+          height="15"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"

@@ -227,7 +227,7 @@ export function ContextCard({
 }) {
   return (
     <div className="flex flex-col gap-4 rounded-xl bg-white p-8 shadow-sm ring-1 ring-line/70">
-      <span className="font-sans text-xs font-semibold uppercase tracking-[0.15em] text-accent">
+      <span className="font-sans text-xl font-semibold md:text-xl uppercase">
         {title}
       </span>
       <div className="font-sans text-base leading-7 text-muted [&_p]:mt-0 [&_p]:leading-7 [&_strong]:font-semibold [&_strong]:text-ink">
@@ -242,9 +242,9 @@ export function ContextCard({
 export function BusinessImpact({ children }: { children: React.ReactNode }) {
   return (
     <div className="my-14 rounded-2xl border border-line/50 bg-white px-8 py-12 text-center shadow-sm md:px-16 md:py-14">
-      <p className="font-serif text-3xl font-semibold text-accent md:text-4xl">
+      <span className="font-sans text-xl font-semibold text-accent md:text-xl uppercase">
         Business impact
-      </p>
+      </span>
       <div className="mt-8 font-sans text-xl leading-9 text-muted md:text-2xl md:leading-[1.6] [&_p]:mt-0 [&_strong]:font-bold [&_strong]:text-accent">
         {children}
       </div>
@@ -316,27 +316,24 @@ export function FindingCard({
           {stat}
         </div>
       ) : label ? (
-        <div className="mb-4 font-sans text-sm font-semibold text-accent">
+        <div className="mb-4 font-sans text-sm font-bold uppercase tracking-[0.08em] text-accent">
           {label}
         </div>
       ) : null}
       <div className="font-sans text-base leading-7 text-muted [&_strong]:font-semibold [&_strong]:text-ink">
         {children}
       </div>
-      <div className="mt-7 grid gap-5 border-t border-line pt-7 md:grid-cols-2">
-        <div>
-          <p className="mb-1.5 font-sans text-xs font-bold uppercase tracking-[0.2em] text-muted/40">
-            Fonte
-          </p>
-          <p className="font-sans text-sm leading-6 text-muted/70">{source}</p>
-        </div>
-        <div>
-          <p className="mb-1.5 font-sans text-xs font-bold uppercase tracking-[0.2em] text-muted/40">
-            Decisão gerada
-          </p>
-          <p className="font-sans text-sm font-medium leading-6 text-ink">{decision}</p>
-        </div>
+      <div className="mt-7 rounded-lg bg-ink/[0.05] p-5 md:p-6">
+        <p className="mb-2 font-sans text-xs font-bold uppercase tracking-[0.2em] text-muted/60">
+          Decisão gerada
+        </p>
+        <p className="font-sans text-sm font-medium leading-6 text-ink">{decision}</p>
       </div>
+      <p className="mt-5 font-sans text-xs leading-5 text-muted/60">
+        <span className="font-semibold uppercase tracking-[0.15em]">Fonte</span>
+        {' · '}
+        {source}
+      </p>
     </div>
   );
 }
