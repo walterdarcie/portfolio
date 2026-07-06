@@ -103,7 +103,7 @@ export default function HomePage() {
 
           {/* Full-viewport-width horizontal scroll */}
           <div
-            className="overflow-x scrollbar-hide"
+            className="overflow-x-auto scrollbar-hide"
             style={{
               position: 'relative',
               left: '50%',
@@ -111,7 +111,7 @@ export default function HomePage() {
               width: '100vw',
             }}
           >
-            <div className="flex pb-12 pl-6 md:pl-10">
+            <div className="flex pb-12 pl-6 pr-6 pt-2 md:pl-10 md:pr-10">
               {timeline.map((item, i) => (
                 <div key={`${item.company}-${i}`} className="flex w-[220px] shrink-0 flex-col">
                   {/* Dot + connector */}
