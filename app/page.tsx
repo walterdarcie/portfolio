@@ -95,7 +95,7 @@ export default function HomePage() {
 
           {/* Full-viewport-width horizontal scroll */}
           <div
-            className="overflow-x-auto scrollbar-hide"
+            className="overflow-x scrollbar-hide"
             style={{
               position: 'relative',
               left: '50%',

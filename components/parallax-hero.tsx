@@ -12,17 +12,43 @@ type ParallaxHeroProps = {
   impact?: string;
 };
 
+// Máscara diagonal: revela a imagem a partir do canto superior direito.
+// `edge` controla até onde a imagem aparece ao longo da diagonal (225deg).
+function maskFor(edge: number) {
+  return `linear-gradient(225deg, rgba(0,0,0,1) ${edge - 30}%, rgba(0,0,0,0) ${edge}%)`;
+}
+
+const EDGE_START = 48; // cobertura inicial: só o canto superior direito
+const EDGE_END = 160; // cobertura final: imagem completa
+const REVEAL_DISTANCE = 700; // px de scroll para completar a revelação
+const PARALLAX_FACTOR = 0.25;
+const SMOOTHING = 0.08;
+
 export function ParallaxHero({ backgroundSrc, logoSrc, logoAlt, title, tags, summary, year, impact }: ParallaxHeroProps) {
   const bgRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const onScroll = () => {
-      if (bgRef.current) {
-        bgRef.current.style.transform = `translateY(${-window.scrollY * 0.55}px)`;
-      }
+    const el = bgRef.current;
+    if (!el) return;
+    let raf = 0;
+    let current = window.scrollY;
+
+    const tick = () => {
+      const target = window.scrollY;
+      current += (target - current) * SMOOTHING;
+      if (Math.abs(target - current) < 0.1) current = target;
+
+      el.style.transform = `translate3d(0, ${-current * PARALLAX_FACTOR}px, 0)`;
+
+      const progress = Math.min(Math.max(current / REVEAL_DISTANCE, 0), 1);
+      const mask = maskFor(EDGE_START + progress * (EDGE_END - EDGE_START));
+      el.style.webkitMaskImage = mask;
+      el.style.maskImage = mask;
+
+      raf = requestAnimationFrame(tick);
     };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
   }, []);
 
   const tagList = tags ? tags.split('·').map(t => t.trim()).filter(Boolean) : [];
@@ -38,23 +64,25 @@ export function ParallaxHero({ backgroundSrc, logoSrc, logoAlt, title, tags, sum
         marginTop: '0',
       }}
     >
-      {/* Parallax background — anchored bottom-right, rises as user scrolls */}
+      {/* Background com parallax suave, ancorado no canto superior direito.
+          Revelado progressivamente pela máscara diagonal conforme o scroll. */}
       <div
         ref={bgRef}
-        className="absolute inset-0 will-change-transform"
-        style={{ top: '-20%', height: '140%' }}
+        className="absolute inset-x-0 top-0 will-change-transform"
+        style={{
+          height: '150%',
+          WebkitMaskImage: maskFor(EDGE_START),
+          maskImage: maskFor(EDGE_START),
+        }}
       >
         <img
           src={backgroundSrc}
           alt=""
           aria-hidden
           className="h-full w-full object-cover"
-          style={{ objectPosition: 'right bottom' }}
+          style={{ objectPosition: 'right top' }}
         />
       </div>
-
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/20" />
 
       {/* Glass card */}
       <div className="absolute inset-0 flex items-center justify-center px-5">

@@ -13,7 +13,7 @@ customHero: true
 ---
 
 <ProjectHero
-  backgroundSrc="/images/projects/collections-hotmart/bg-collections.png"
+  backgroundSrc="/images/projects/collections-hotmart/bg-collections-2.png"
   logoSrc="/images/projects/collections-hotmart/logo-da-hotmart.svg"
   logoAlt="Hotmart"
   title="Collections Hotmart"
@@ -122,7 +122,7 @@ Com o modelo em mãos, cruzei as **alavancas de Collections** com cada comportam
 
 A régua se distribui ao longo de toda a jornada, em duas fases: **Prevenção e Correção**. Ela se apoia em quatro pilares: diversificação de canais (WhatsApp, SMS e push, além do e-mail), comunicação intencional e escalonada, uma régua preventiva que começa logo após a compra e o **ecossistema Hotmart como vantagem competitiva**, inserindo a cobrança onde o aluno consome o conteúdo.
 
-<ProjectImageBleed
+<ProjectImage
   src="/images/projects/collections-hotmart/regua.png"
   alt="Matriz da nova régua de Collections, cruzando canais com os estágios da jornada de prevenção e correção"
   caption="A régua como sistema: cada canal mapeado contra os estágios da jornada, da comunicação preventiva pós-compra aos alertas de atraso."
@@ -158,7 +158,6 @@ O e-mail de onboarding antigo não esclarecia o compromisso de pagamento e parec
   alt="E-mail de onboarding redesenhado, com compromisso de pagamento, resumo da compra e acesso à gestão de pagamentos"
   width={1462}
   height={2000}
-  maxWidth="480px"
 />
 
 <ProjectVideo
@@ -172,10 +171,28 @@ O e-mail de onboarding antigo não esclarecia o compromisso de pagamento e parec
 A Gestão de Pagamentos existia, mas vivia enterrada no histórico: hierarquia inconsistente, sem separação entre cards e sem acesso na primeira dobra. Tratei a decisão de pagamento como parte do consumo do curso, reorganizando o card e a modal de detalhes para trazer um **bloco de pagamento com link direto à gestão, logo na primeira dobra**, e um sistema de estados padronizado.
 
 <ProjectImage
-  src="/images/projects/collections-hotmart/novos-cards.png"
-  alt="Novos cards de compra com sistema de estados e bloco de pagamento na primeira dobra"
-  caption="Encontrabilidade: o bloco de pagamento sobe para a primeira dobra, com hierarquia e estados padronizados."
+  src="/images/projects/collections-hotmart/antes-hub.png"
+  alt="Encontrabilidade prejudicada e problemas de interface como hierarquia de botões e falta de clareza na separação dos cards."
+  caption="Encontrabilidade prejudicada e problemas de interface como hierarquia de botões e falta de clareza na separação dos cards."
   width={381}
+  height={282}
+  align="center"
+/>
+
+<ProjectImage
+  src="/images/projects/collections-hotmart/depois-hub.png"
+  alt="Novos cards de compra com sistema de estados e bloco de pagamento na primeira dobra"
+  caption="Melhorias de encontrabilidade: hierarquia e estados padronizados com acesso claro à gestão de pagamentos."
+  width={381}
+  height={282}
+  align="center"
+/>
+
+<ProjectImage
+  src="/images/projects/collections-hotmart/depois-hub-2.png"
+  alt="Ao clicar em acessar, quando houver um pagamento disponível no dia do vencimento, subir uma modal incentivando o pagamento"
+  caption="Ao clicar em acessar, quando houver um pagamento disponível no dia do vencimento, subir uma modal incentivando o pagamento."
+  width={200}
   height={282}
   align="center"
 />
@@ -229,18 +246,20 @@ Coloquei três opções na mesa e testei cada uma na matriz comportamental:
 
 A lógica foi invertida: **testar primeiro o grau mais leve de fricção, medindo o efeito antes de escalar** para algo mais duro.
 
-<SideBySide>
-  <ProjectImage
-    src="/images/projects/collections-hotmart/modal-sala-2.png"
-    alt="Modal de pagamento em atraso aparecendo sobre a aula em vídeo"
-    width={1740}
-    height={1706}
-  />
-  <ProjectVideo
-    src="/images/projects/collections-hotmart/modal-atraso.mov"
-    caption="A modal em ação: interrupção contextual de 30 segundos no momento de maior valor da aula."
-  />
-</SideBySide>
+
+<ProjectImage
+  src="/images/projects/collections-hotmart/modal-sala-2.png"
+  alt="Modal de pagamento em atraso aparecendo sobre a aula em vídeo"
+  caption="Modal de pagamento em atraso aparecendo sobre a aula em vídeo"
+  width={1740}
+  height={1706}
+  align="center"
+/>
+<ProjectVideo
+  src="/images/projects/collections-hotmart/modal-atraso.mov"
+  caption="A modal em ação: interrupção contextual de 30 segundos no momento de maior valor da aula."
+  maxWidth="380px"
+/>
 
 O resultado inverteu o risco: o que era ameaça de corte de acesso virou **alavanca de engajamento**, e passou a ser usado pelo time de CS como argumento de venda junto aos Creators.
 
@@ -255,6 +274,12 @@ Até então, quem tinha parcelas em atraso só conseguia quitar o valor inteiro.
 />
 
 ## Resultados
+
+<StatGrid>
+  <Stat value="7%" label="de projeção de inadimplência para o fim do ano, superando a meta de 15%" />
+  <Stat value="38%" label="de taxa de recuperação" />
+  <Stat value="40%" label="de tudo que foi recuperado veio de canais internos da Hotmart" />
+</StatGrid>
 
 **Inadimplência:** De cerca de 30%, que ameaçava o MVP, para **14%**, superando a meta de 15%. Projeção de **fechar o ano em torno de 7%**, metade do número do MVP.
 

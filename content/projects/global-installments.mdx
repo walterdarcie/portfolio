@@ -28,12 +28,12 @@ customHero: true
     Após o sucesso do BNPL no Brasil (o Parcelado Hotmart, do case de Collections), a empresa buscava **expandir o produto para novos mercados**. Na Europa, o Sequra funcionava bem; nos Estados Unidos, o Klarna. Fui responsável por liderar o discovery para entender **se e como o BNPL deveria ser expandido**, e qual seria a melhor estratégia para impulsionar parcelamento na América Latina.
   </ContextCard>
   <ContextCard title="O problema">
-    A hipótese inicial do time era simples: "falta BNPL nesses mercados". Mas creators hispanohablantes vendiam em dólar, **não conseguiam oferecer parcelamento local nem o Meses Sin Intereses (MSI)**, e migravam faturamento para concorrentes como a Stripe. A jornada de precificação concentrava tudo em duas opções, **pagamento à vista ou Smart Installments**, com juros automáticos e risco de inadimplência no colo do creator.
+    A hipótese inicial do time era simples: "falta BNPL nesses mercados". Mas creators hispanohablantes vendiam em dólar, **não conseguiam oferecer parcelamento local nem o Meses Sin Intereses (MSI)**, e migravam faturamento para concorrentes como a Stripe. A jornada de precificação concentrava tudo em duas opções, **pagamento à vista ou Smart Installments**, a ferramenta interna da Hotmart para parcelamento de ofertas em dólar: juros automáticos e risco de inadimplência no colo do creator.
   </ContextCard>
 </ContextCards>
 
 <BusinessImpact>
-  O discovery gerou um **pivot estratégico** que fundamentou a criação de uma nova squad, a **Installments BV**, e reorientou o roadmap de 2026. A oportunidade mapeada é de **+10% de GMV nos mercados internacionais** com a melhoria da experiência de parcelamento. No piloto de MSI, 6 creators geraram **US$ 2,4M de GMV em dois meses**, sendo US$ 558 mil em vendas sem juros que antes escoavam para outras plataformas.
+  O discovery gerou um **pivot estratégico** que fundamentou a criação de uma nova squad, a **Global Installments**, e reorientou o roadmap de 2026. A oportunidade mapeada é de **+10% de GMV nos mercados internacionais** com a melhoria da experiência de parcelamento. No piloto de MSI, 6 creators geraram **US$ 2,4M de GMV em dois meses**, sendo US$ 558 mil em vendas sem juros que antes escoavam para outras plataformas.
 </BusinessImpact>
 
 <RoleTags roles="Liderança de discovery,Estratégia de produto,Pesquisa quali e quanti,UI Design,UX Writing,Localização,Orquestração cross-squad,Go-to-market" />
@@ -82,7 +82,7 @@ A pesquisa com buyers completou o quadro: **22% dos mexicanos e 37% dos colombia
   O problema central não era "BNPL indisponível". Era a fricção para criar e entender ofertas parceladas.
 </Pullquote>
 
-Esse achado reposicionou a estratégia por completo: deixamos de atuar apenas na camada transacional e passamos a focar na **localização das features de precificação da Hotmart**. O pivot ganhou relevância executiva, reorientou prioridades e culminou na criação de uma nova squad dentro da unidade de Financial Services, a **Installments BV**.
+Esse achado reposicionou a estratégia por completo: deixamos de atuar apenas na camada transacional e passamos a focar na **localização das features de precificação da Hotmart**. O pivot ganhou relevância executiva, reorientou prioridades e culminou na criação de uma nova squad dentro da unidade de Financial Services, a **Global Installments**, que dá nome a este case.
 
 <HypothesisCards header="Decisão estratégica avaliada com dados do discovery">
   <HypothesisCard
@@ -125,6 +125,15 @@ Na jornada As Is, Juan criava a oferta em dólar e via duas formas de pagamento:
   height={1000}
 />
 
+### Desktop primeiro: cada escolha com sua consequência
+
+O redesenho partiu do desktop, que segue sendo a principal ferramenta de trabalho dos produtores na gestão do negócio. O ganho de espaço em tela virou recurso de design: um **resumo vivo da oferta** acompanha toda a configuração, simulando como o buyer de cada país vê o preço e listando, em tempo real, **o que cada escolha habilita ou bloqueia** na oferta. Nenhuma decisão de precificação fica sem consequência visível.
+
+<ProjectVideo
+  src="/images/projects/global-installments/precificacao-desk.mov"
+  caption="A experiência desktop: o resumo da oferta simula o preço por país e reage a cada configuração, mostrando o que ela habilita ou bloqueia."
+/>
+
 ### Conversão de moeda como decisão estrutural
 
 No redesenho, a primeira mudança foi de arquitetura: a **conversão automática de moedas** subiu para o início da configuração, porque é ela que habilita ou não o parcelamento nativo em ofertas de dólar. O que antes era um detalhe escondido virou a decisão que destrava vendas locais, com recomendação explícita na interface.
@@ -135,6 +144,14 @@ No redesenho, a primeira mudança foi de arquitetura: a **conversão automática
   caption="A nova hierarquia: preço e moeda primeiro, com a conversão automática recomendada logo na sequência."
   width={1600}
   height={1000}
+/>
+
+O gancho de escolhas e consequências fica ainda mais forte na seleção do conversor: **quem escolhe não ativar vê uma mensagem clara na tela do que está perdendo**, da moeda local aos métodos de pagamento do país do buyer. A decisão continua nas mãos do creator, mas deixa de ser tomada às cegas.
+
+<ProjectVideo
+  src="/images/projects/global-installments/prec-conversor.mov"
+  caption="Ao optar por não ativar o conversor, a interface explicita o que a oferta deixa de oferecer."
+  maxWidth="380px"
 />
 
 ### Parcelamento no cartão em dois modelos claros
@@ -149,9 +166,15 @@ O parcelamento nativo virou o fluxo principal, dividido em dois modelos com pap�
   height={1000}
 />
 
+<ProjectVideo
+  src="/images/projects/global-installments/installments.mov"
+  caption="A seleção entre com e sem taxas: cada modelo explicita quem absorve o custo e quanto o creator recebe."
+  maxWidth="380px"
+/>
+
 ### Recuperador e parcelamento global no lugar certo
 
-As ferramentas que antes se misturavam ganharam papéis definidos. O **recuperador automático** passou a ser extensão do fluxo nativo: entra sozinho quando o cartão do buyer não tem limite, recuperando até 50% das vendas recusadas, com preço idêntico ao parcelamento nativo. O **Smart Installments** deixou de ser o padrão geral de ofertas em dólar e virou o que sempre deveria ter sido: a alternativa para parcelar em moedas sem parcelamento nativo, em mais de 180 países.
+As ferramentas que antes se misturavam ganharam papéis definidos. O **recuperador automático** passou a ser extensão do fluxo nativo: entra sozinho quando o cartão do buyer não tem limite, recuperando até 50% das vendas recusadas, com preço idêntico ao parcelamento nativo. Já o **Smart Installments**, a ferramenta interna da Hotmart que parcela ofertas em dólar com juros automáticos e risco de inadimplência para o creator, funciona bem onde não existe alternativa, mas não em países da América Latina que já têm parcelamento nativo no cartão. Reposicionado, deixou de ser o padrão geral de ofertas em dólar e virou o que sempre deveria ter sido: o recurso que leva parcelamento a moedas sem essa opção, em mais de 180 países.
 
 <ProjectImage
   src="/images/projects/global-installments/ferramentas-recuperacao.png"
@@ -165,26 +188,19 @@ As ferramentas que antes se misturavam ganharam papéis definidos. O **recuperad
 
 Para o México, a interface fala a língua do mercado: **"Cuotas con tarifas" e "Cuotas MSI (Meses Sin Intereses)"**, com o termo que o buyer reconhece destacado no checkout ("o hasta 12 MSI"). A pesquisa mostrou que MSI não é uma feature, é uma expectativa cultural, e o copy foi tratado como parte do produto, com educação contextual sobre taxas e recebimento em cada bloco.
 
-<ProjectImage
-  src="/images/projects/global-installments/checkout-msi.png"
-  alt="Checkout mobile no México com a opção de Meses Sin Intereses em destaque no preço"
-  caption="O checkout usa o vocabulário do mercado: MSI no preço, métodos locais e transparência de parcelas."
-  width={1000}
-  height={1600}
-  maxWidth="420px"
-/>
-
-### Mudança estrutural com porta de saída
-
-Redesenhar a precificação de uma plataforma inteira pede tanto craft de rollout quanto de tela. A análise de comportamento mostrou que **61% da base nunca customiza taxas** e que **14,8% já simulavam MSI por conta própria**, assumindo risco de inadimplência para vender sem juros. O rollout começou por esses 155 creators, que percebem a mudança como redução direta de risco, com comunicação antecipada, entrada sob demanda via Account Managers e **opt-out temporário para a jornada anterior** direto na plataforma.
-
-<ProjectImage
-  src="/images/projects/global-installments/opt-out.png"
-  alt="Modal de retorno temporário para a versão anterior da precificação, explicando o que o creator deixa de usar"
-  caption="A porta de saída como mitigação de OPS: autonomia para o creator decidir o timing da mudança."
-  width={1600}
-  height={1000}
-/>
+<SideBySide>
+  <ProjectImage
+    src="/images/projects/global-installments/checkout-msi.png"
+    alt="Checkout mobile no México com a opção de Meses Sin Intereses em destaque no preço"
+    caption="O checkout usa o vocabulário do mercado: MSI no preço, métodos locais e transparência de parcelas."
+    width={1000}
+    height={1600}
+  />
+  <ProjectVideo
+    src="/images/projects/global-installments/checkout-sin-interesses.mov"
+    caption="Nas opções de cuotas, as parcelas sem juros levam o selo que o buyer mexicano procura: Sin intereses."
+  />
+</SideBySide>
 
 ## Orquestração cross-squad
 
@@ -199,7 +215,18 @@ A mudança na precificação atravessou o produto inteiro, e parte do meu papel 
   <DiscoveryItem>**Suporte e CS:** clareza e educação sobre a configuração de MSI, com treinamentos e materiais</DiscoveryItem>
 </DiscoveryList>
 
-Também assinei o go-to-market da funcionalidade junto ao PMM: copies da plataforma e materiais de comunicação via WhatsApp para a base impactada.
+## Estratégia de go-to-market
+
+Mudar a precificação de uma plataforma inteira pede tanto craft de lançamento quanto de tela. A análise de comportamento mostrou que **61% da base nunca customiza taxas**, para essa maioria a transição é silenciosa, e que **14,8% já simulavam MSI por conta própria**, assumindo risco de inadimplência para vender sem juros. O rollout começou por esses 155 creators: para eles, a nova precificação não era mudança de hábito, era **redução direta de risco**.
+
+A chegada à nova experiência foi tratada como parte do produto. Desenhei o **onboarding da tela de precificação** para apresentar os novos blocos antes de pedir qualquer decisão: o que mudou, onde vivem as escolhas de parcelamento e o que cada uma significa para o recebimento.
+
+<ProjectVideo
+  src="/images/projects/global-installments/onboarding.mov"
+  caption="O onboarding da nova precificação: a tela se apresenta, bloco a bloco, antes de pedir a primeira decisão."
+/>
+
+Fechando a estratégia, assinei junto ao PMM as copies da plataforma e os materiais de comunicação via WhatsApp para a base impactada, com **comunicação antecipada da mudança** e entrada sob demanda via Account Managers. O piloto de MSI com 6 creators serviu de prova de valor antes da expansão para o restante da base.
 
 ## Resultados
 
@@ -209,7 +236,7 @@ Também assinei o go-to-market da funcionalidade junto ao PMM: copies da platafo
   <Stat value="+147%" label="de GMV médio diário do Mercatitlán após o MSI, com lançamento 2x maior que o anterior" />
 </StatGrid>
 
-**Pivot que virou estrutura:** o discovery fundamentou a criação da squad **Installments BV**, reorientou o roadmap e estabeleceu regras de parcelamento claras o suficiente para trazer de volta vendas que escoavam para concorrentes.
+**Pivot que virou estrutura:** o discovery fundamentou a criação da squad **Global Installments**, reorientou o roadmap e estabeleceu regras de parcelamento claras o suficiente para trazer de volta vendas que escoavam para concorrentes.
 
 **Mercatitlán, do pedido ao resultado:** o creator que pedia MSI antes mesmo da feature existir foi um dos primeiros do piloto. O GMV médio diário cresceu **147%**, com o MSI respondendo por 34% do volume, **sem canibalizar** as vendas à vista, que cresceram 70% no mesmo período.
 
@@ -222,4 +249,4 @@ Também assinei o go-to-market da funcionalidade junto ao PMM: copies da platafo
 - **Localização não é tradução:** MSI não era uma feature faltante, era uma expectativa cultural. Tratar o vocabulário do mercado como requisito de produto mudou a conversa com creators e buyers.
 - **A fricção estava na configuração, não no checkout:** seguir a evidência até a causa raiz evitou construir um produto novo sobre uma fundação quebrada.
 - **Dados convencem, narrativa mobiliza:** a árvore de GMV provou o problema, mas foi a jornada do Juan que alinhou squads e liderança em torno do pivot.
-- **Mudança estrutural pede porta de saída:** rollout orientado por comportamento e opt-out na plataforma transformaram uma migração arriscada em adoção progressiva.
+- **Go-to-market também é design:** rollout orientado por comportamento, onboarding contextual e comunicação antecipada transformaram uma mudança estrutural em adoção progressiva.

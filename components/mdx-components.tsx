@@ -316,24 +316,24 @@ export function FindingCard({
           {stat}
         </div>
       ) : label ? (
-        <div className="mb-4 font-sans text-sm font-bold uppercase tracking-[0.08em] text-accent">
+        <div className="mb-4 font-sans text-2xl font-bold uppercase tracking-[0.08em] text-accent">
           {label}
         </div>
       ) : null}
       <div className="font-sans text-base leading-7 text-muted [&_strong]:font-semibold [&_strong]:text-ink">
         {children}
       </div>
-      <div className="mt-7 rounded-lg bg-ink/[0.05] p-5 md:p-6">
-        <p className="mb-2 font-sans text-xs font-bold uppercase tracking-[0.2em] text-muted/60">
+      <div className="mt-7 mb-4 rounded-lg bg-ink/[0.05] p-5 md:p-5">
+        <span className="font-sans text-sm font-bold uppercase tracking-[0.2em] text-muted/60">
           Decisão gerada
-        </p>
+        </span>
         <p className="font-sans text-sm font-medium leading-6 text-ink">{decision}</p>
       </div>
-      <p className="mt-5 font-sans text-xs leading-5 text-muted/60">
+      <span className="mt-5 font-sans text-sm leading-5 text-muted/80">
         <span className="font-semibold uppercase tracking-[0.15em]">Fonte</span>
         {' · '}
         {source}
-      </p>
+      </span>
     </div>
   );
 }
