@@ -33,7 +33,7 @@ customHero: true
 </ContextCards>
 
 <BusinessImpact>
-  O discovery gerou um **pivot estratégico** que fundamentou a criação de uma nova squad, a **Global Installments**, e reorientou o roadmap de 2026. A oportunidade mapeada é de **+10% de GMV nos mercados internacionais** com a melhoria da experiência de parcelamento. No piloto de MSI, 6 creators geraram **US$ 2,4M de GMV em dois meses**, sendo US$ 558 mil em vendas sem juros que antes escoavam para outras plataformas.
+  O discovery gerou um **pivot estratégico** que fundamentou a criação de uma nova squad, a **Global Installments**, e reorientou o roadmap de 2026. A oportunidade mapeada é de **+10% de GMV nos mercados internacionais** com a melhoria da experiência de parcelamento. No piloto de Meses Sin Intereses (MSI), 6 creators geraram **US$ 2,4M de GMV em dois meses**, sendo US$ 558 mil em vendas sem juros que antes escoavam para outras plataformas.
 </BusinessImpact>
 
 <RoleTags roles="Liderança de discovery,Estratégia de produto,Pesquisa quali e quanti,UI Design,UX Writing,Localização,Orquestração cross-squad,Go-to-market" />
@@ -57,7 +57,7 @@ Para estruturar o experimento de BNPL no México, conduzi uma investigação em 
   source="Árvore de GMV por moeda · Auditoria da jornada As Is"
   decision="O gargalo não estava no checkout, estava na configuração da oferta: destravar o parcelamento local começava pela precificação."
 >
-do GMV vendido em pesos mexicanos vinha de **ofertas configuradas em dólar**. Para essas vendas, a única opção de parcelamento era o Smart Installments, o que **impossibilitava o parcelamento nativo** no cartão local, mesmo com a conversão de moeda ativa. Perda direta de GMV para concorrentes como a Stripe, que oferece parcelamento local sem fricção.
+do GMV vendido em pesos mexicanos vinha de **ofertas configuradas em dólar**. Para essas vendas não era possível configurar o **parcelamento nativo** no cartão local na América Latina, mesmo com a conversão de moeda ativa. Perda direta de GMV para concorrentes como a Stripe, que oferece parcelamento local sem fricção.
 </FindingCard>
 
 <FindingCard
@@ -138,14 +138,6 @@ O redesenho partiu do desktop, que segue sendo a principal ferramenta de trabalh
 
 No redesenho, a primeira mudança foi de arquitetura: a **conversão automática de moedas** subiu para o início da configuração, porque é ela que habilita ou não o parcelamento nativo em ofertas de dólar. O que antes era um detalhe escondido virou a decisão que destrava vendas locais, com recomendação explícita na interface.
 
-<ProjectImage
-  src="/images/projects/global-installments/precificacao-nova.png"
-  alt="Nova tela de precificação, com informações do preço e conversão automática de moedas em destaque"
-  caption="A nova hierarquia: preço e moeda primeiro, com a conversão automática recomendada logo na sequência."
-  width={1600}
-  height={1000}
-/>
-
 O gancho de escolhas e consequências fica ainda mais forte na seleção do conversor: **quem escolhe não ativar vê uma mensagem clara na tela do que está perdendo**, da moeda local aos métodos de pagamento do país do buyer. A decisão continua nas mãos do creator, mas deixa de ser tomada às cegas.
 
 <ProjectVideo
@@ -158,12 +150,13 @@ O gancho de escolhas e consequências fica ainda mais forte na seleção do conv
 
 O parcelamento nativo virou o fluxo principal, dividido em dois modelos com papéis explícitos: **com taxas** (o buyer absorve o acréscimo) e **sem taxas, o MSI** (o creator absorve e vende mais). A interface mostra em quais países dá para parcelar, o valor de cada parcela, quanto o creator recebe e permite editar parcela a parcela. E a mudança estrutural mais importante: no fluxo nativo **o creator recebe 100% do valor bruto garantido, sem risco de inadimplência**, invertendo a lógica do modelo anterior.
 
-<ProjectImage
+<ProjectImageBleed
   src="/images/projects/global-installments/parcelamento-cartao.png"
   alt="Bloco de parcelamento no cartão de crédito com os modelos com taxas e sem taxas (MSI)"
   caption="Dois cards, uma decisão de negócio: repassar a taxa ao buyer ou absorver e converter mais."
   width={1600}
   height={1000}
+  align="center"
 />
 
 <ProjectVideo
@@ -172,35 +165,24 @@ O parcelamento nativo virou o fluxo principal, dividido em dois modelos com pap�
   maxWidth="380px"
 />
 
-### Recuperador e parcelamento global no lugar certo
-
-As ferramentas que antes se misturavam ganharam papéis definidos. O **recuperador automático** passou a ser extensão do fluxo nativo: entra sozinho quando o cartão do buyer não tem limite, recuperando até 50% das vendas recusadas, com preço idêntico ao parcelamento nativo. Já o **Smart Installments**, a ferramenta interna da Hotmart que parcela ofertas em dólar com juros automáticos e risco de inadimplência para o creator, funciona bem onde não existe alternativa, mas não em países da América Latina que já têm parcelamento nativo no cartão. Reposicionado, deixou de ser o padrão geral de ofertas em dólar e virou o que sempre deveria ter sido: o recurso que leva parcelamento a moedas sem essa opção, em mais de 180 países.
-
-<ProjectImage
-  src="/images/projects/global-installments/ferramentas-recuperacao.png"
-  alt="Blocos do recuperador automático de vendas e do parcelamento inteligente na nova precificação"
-  caption="Recuperador como extensão do fluxo nativo e Smart Installments reposicionado como alcance global."
-  width={1600}
-  height={1000}
-/>
-
 ### Localização de verdade, até no nome
 
 Para o México, a interface fala a língua do mercado: **"Cuotas con tarifas" e "Cuotas MSI (Meses Sin Intereses)"**, com o termo que o buyer reconhece destacado no checkout ("o hasta 12 MSI"). A pesquisa mostrou que MSI não é uma feature, é uma expectativa cultural, e o copy foi tratado como parte do produto, com educação contextual sobre taxas e recebimento em cada bloco.
 
-<SideBySide>
-  <ProjectImage
-    src="/images/projects/global-installments/checkout-msi.png"
-    alt="Checkout mobile no México com a opção de Meses Sin Intereses em destaque no preço"
-    caption="O checkout usa o vocabulário do mercado: MSI no preço, métodos locais e transparência de parcelas."
-    width={1000}
-    height={1600}
-  />
-  <ProjectVideo
-    src="/images/projects/global-installments/checkout-sin-interesses.mov"
-    caption="Nas opções de cuotas, as parcelas sem juros levam o selo que o buyer mexicano procura: Sin intereses."
-  />
-</SideBySide>
+<ProjectVideo
+  src="/images/projects/global-installments/checkout-sin-interesses.mov"
+  caption="Nas opções de cuotas, as parcelas sem juros levam o selo que o buyer mexicano procura: Sin intereses."
+  maxWidth="380px"
+/>
+
+<ProjectImage
+  src="/images/projects/global-installments/prec-mex.png"
+  alt="Tela de configuração para mexicanos com localização com o termo MSI"
+  caption="Tela de configuração para mexicanos com localização com o termo MSI."
+  width={1600}
+  height={1000}
+  maxWidth="380px"
+/>
 
 ## Orquestração cross-squad
 

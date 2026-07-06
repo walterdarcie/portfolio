@@ -58,7 +58,7 @@ a {
 }
 
 .prose-editorial h4 {
-  @apply mt-8 font-serif text-xl font-semibold text-ink;
+  @apply font-serif text-xl font-semibold text-ink;
 }
 
 .prose-editorial p {
