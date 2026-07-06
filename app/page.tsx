@@ -3,18 +3,13 @@ import { getAllProjects } from '@/lib/projects';
 import { AnimateOnScroll } from '@/components/animate-on-scroll';
 import { HalftoneField } from '@/components/halftone-field';
 
-// Newest → oldest (left to right)
+// Newest → oldest (left to right). Um bullet por empresa: último cargo + tempo total na empresa
 const timeline = [
-  { company: 'Hotmart',        role: 'Staff Product Designer',      period: 'abr 2026 – atual',      current: true  },
-  { company: 'Hotmart',        role: 'Senior Product Designer',     period: 'abr 2024 – abr 2026',   current: false },
-  { company: 'Pipo Saúde',     role: 'Lead Product Designer',       period: 'abr 2022 – dez 2023',   current: false },
-  { company: 'Coderhouse',     role: 'Professor e tutor',           period: 'jun 2022 – fev 2023',   current: false },
-  { company: 'Bionexo',        role: 'Lead Product Designer',       period: 'jan 2021 – abr 2022',   current: false },
-  { company: 'Bionexo',        role: 'Senior Product Designer',     period: 'nov 2019 – jan 2021',   current: false },
-  { company: 'Bionexo',        role: 'Product Designer',            period: 'fev 2019 – nov 2019',   current: false },
-  { company: 'Cásper Líbero',  role: 'Web Designer Pleno',         period: 'dez 2016 – fev 2019',   current: false },
-  { company: 'Cásper Líbero',  role: 'Web Designer Jr',            period: 'jul 2012 – dez 2016',   current: false },
-  { company: 'Cásper Líbero',  role: 'Estagiário de Conteúdo',     period: 'jan 2011 – jul 2012',   current: false },
+  { company: 'Hotmart',        role: 'Staff Product Designer',     period: 'abr 2024 – atual',      current: true  },
+  { company: 'Pipo Saúde',     role: 'Lead Product Designer',      period: 'abr 2022 – dez 2023',   current: false },
+  { company: 'Coderhouse',     role: 'Professor e tutor',          period: 'jun 2022 – fev 2023',   current: false },
+  { company: 'Bionexo',        role: 'Lead Product Designer',      period: 'fev 2019 – abr 2022',   current: false },
+  { company: 'Cásper Líbero',  role: 'Web Designer',              period: 'jan 2011 – fev 2019',   current: false },
 ];
 
 export default function HomePage() {
