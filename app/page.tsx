@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { getAllProjects } from '@/lib/projects';
 import { AnimateOnScroll } from '@/components/animate-on-scroll';
+import { HalftoneField } from '@/components/halftone-field';
 
 // Newest → oldest (left to right)
 const timeline = [
@@ -26,64 +27,71 @@ export default function HomePage() {
         className="flex flex-col pb-0 pt-12 md:pt-16"
         style={{ minHeight: 'calc(100svh - 81px)' }}
       >
-        {/* Text content */}
-        <div className="flex flex-1 flex-col justify-center gap-8 md:gap-10">
-          {/* Eyebrow */}
-          <div className="animate-fade-up">
-            <span className="inline-flex items-center gap-2.5 font-sans text-sm font-semibold text-ink">
-              <span className="inline-block h-1.5 w-1.5 rounded-full bg-accent" />
-              Staff Product Designer · Hotmart
-            </span>
-          </div>
+        {/* Text content + halftone graphic (graphic is desktop-only) */}
+        <div className="grid flex-1 items-center gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.9fr)]">
+          <div className="flex flex-col justify-center gap-8 md:gap-10">
+            {/* Eyebrow */}
+            <div className="animate-fade-up">
+              <span className="inline-flex items-center gap-2.5 font-sans text-sm font-semibold text-ink">
+                <span className="inline-block h-1.5 w-1.5 rounded-full bg-accent" />
+                Staff Product Designer · Hotmart
+              </span>
+            </div>
 
-          {/* Name */}
-          <div className="animate-fade-up delay-100">
-            <h1
-              className="font-serif leading-[0.88] tracking-tight text-ink"
-              style={{ fontSize: 'clamp(3.6rem, 11vw, 10rem)' }}
-            >
-              <span className="block font-black">Walter</span>
-              <span className="block font-extralight italic text-ink/60">Darcie</span>
-            </h1>
-          </div>
-
-          {/* Description */}
-          <div className="animate-fade-up delay-200 max-w-lg">
-            <p className="font-sans text-base leading-relaxed text-muted md:text-lg">
-              Mais de 15 anos de trajetória em produtos digitais que passam por B2B e B2C
-              em edtechs, healthtechs e entretenimento. Hoje focado em produtos financeiros,
-              crédito e collections na América Latina.
-            </p>
-          </div>
-
-          {/* CTAs */}
-          <div className="animate-fade-up delay-300 flex flex-wrap items-center gap-5">
-            <a
-              href="mailto:walter.darcie@yahoo.com.br"
-              className="inline-flex items-center gap-2 font-sans text-sm font-semibold text-accent no-underline transition-opacity hover:opacity-70"
-            >
-              Falar comigo
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="14"
-                height="14"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                aria-hidden="true"
+            {/* Name */}
+            <div className="animate-fade-up delay-100">
+              <h1
+                className="font-serif leading-[0.88] tracking-tight text-ink"
+                style={{ fontSize: 'clamp(3.6rem, 11vw, 10rem)' }}
               >
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
-            </a>
-            <Link
-              href="/projects"
-              className="font-sans text-sm text-muted no-underline transition-colors hover:text-ink"
-            >
-              Ver projetos
-            </Link>
+                <span className="block font-black">Walter</span>
+                <span className="block font-extralight italic text-ink/60">Darcie</span>
+              </h1>
+            </div>
+
+            {/* Description */}
+            <div className="animate-fade-up delay-200 max-w-lg">
+              <p className="font-sans text-base leading-relaxed text-muted md:text-lg">
+                Mais de 15 anos de trajetória em produtos digitais que passam por B2B e B2C
+                em edtechs, healthtechs e entretenimento. Hoje focado em produtos financeiros,
+                crédito e collections na América Latina.
+              </p>
+            </div>
+
+            {/* CTAs */}
+            <div className="animate-fade-up delay-300 flex flex-wrap items-center gap-5">
+              <a
+                href="mailto:walter.darcie@yahoo.com.br"
+                className="inline-flex items-center gap-2 font-sans text-sm font-semibold text-accent no-underline transition-opacity hover:opacity-70"
+              >
+                Falar comigo
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </a>
+              <Link
+                href="/projects"
+                className="font-sans text-sm text-muted no-underline transition-colors hover:text-ink"
+              >
+                Ver projetos
+              </Link>
+            </div>
+          </div>
+
+          {/* Halftone sphere, desktop only */}
+          <div className="animate-fade-up delay-300 hidden w-full max-w-[520px] justify-self-end lg:block">
+            <HalftoneField className="aspect-square w-full" />
           </div>
         </div>
 
